@@ -116,13 +116,59 @@ jobs:
         echo "CURRENT_TAG=$CURRENT_TAG" >> $GITHUB_ENV
         popd
 
-    - name: Download libv2ray
-      uses: robinraju/release-downloader@v1.13
+    # patterniha's prebuilt aar is built with -androidapi 29 from v26.10.8 on, which would
+    # cut every Android 7-9 phone off (the app is minSdk 24). Same source, same go.mod, same
+    # flags, only the api level differs, so we build it here and cache it per submodule commit.
+    - name: Restore cached libv2ray
+      id: cache-libv2ray-restore
+      uses: actions/cache/restore@v6
       with:
-        repository: 'patterniha/AndroidLibXrayLite'
-        tag: ${{ env.CURRENT_TAG }}
-        fileName: 'libv2ray.aar'
-        out-file-path: V2rayNG/app/libs/
+        path: ${{ github.workspace }}/libv2ray-out
+        key: libv2ray-api24-${{ runner.os }}-${{ env.NDK_HOME }}-${{ hashFiles('.git/modules/AndroidLibXrayLite/HEAD') }}
+
+    - name: Setup Go for libv2ray
+      if: steps.cache-libv2ray-restore.outputs.cache-hit != 'true'
+      uses: actions/setup-go@v6
+      with:
+        go-version-file: 'AndroidLibXrayLite/go.mod'
+        cache: false
+
+    - name: Build libv2ray (androidapi 24)
+      if: steps.cache-libv2ray-restore.outputs.cache-hit != 'true'
+      env:
+        ANDROID_NDK_HOME: ${{ env.NDK_HOME }}
+      run: |
+        go install golang.org/x/mobile/cmd/gomobile@latest
+        export PATH=$PATH:$(go env GOPATH)/bin
+        pushd AndroidLibXrayLite
+        mkdir -p assets data
+        bash gen_assets.sh download
+        cp -v data/*.dat assets/
+        gomobile init
+        go mod tidy
+        gomobile bind -v -androidapi 24 -trimpath -ldflags='-s -w -buildid= -checklinkname=0' ./
+        popd
+        mkdir -p libv2ray-out
+        cp -v AndroidLibXrayLite/libv2ray.aar libv2ray-out/
+
+    - name: Save libv2ray
+      if: steps.cache-libv2ray-restore.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v6
+      with:
+        path: ${{ github.workspace }}/libv2ray-out
+        key: libv2ray-api24-${{ runner.os }}-${{ env.NDK_HOME }}-${{ hashFiles('.git/modules/AndroidLibXrayLite/HEAD') }}
+
+    - name: Check libv2ray
+      run: |
+        cp -v libv2ray-out/libv2ray.aar V2rayNG/app/libs/
+        api=$(unzip -p V2rayNG/app/libs/libv2ray.aar AndroidManifest.xml | grep -o 'minSdkVersion="[0-9]*"' | grep -o '[0-9]*')
+        echo "libv2ray minSdk: $api"
+        [ "$api" -le 24 ] || { echo "libv2ray.aar needs minSdk $api, the app is minSdk 24"; exit 1; }
+        unzip -o -q V2rayNG/app/libs/libv2ray.aar jni/arm64-v8a/libgojni.so -d /tmp/alx
+        for p in transport/internet/xdrive transport/internet/masque proxy/masque; do
+          grep -q "github.com/xtls/xray-core/$p" /tmp/alx/jni/arm64-v8a/libgojni.so || { echo "core is missing $p"; exit 1; }
+        done
+        echo "core has xdrive + masque"
 
     - name: Setup Java
       uses: actions/setup-java@v6.0.1
