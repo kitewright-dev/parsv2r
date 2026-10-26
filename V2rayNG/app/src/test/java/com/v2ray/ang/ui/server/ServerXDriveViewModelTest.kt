@@ -98,9 +98,11 @@ class ServerXDriveViewModelTest {
         assertEquals(Problem.MISSING_ENCRYPTION, vm.state.value.problem)
         assertTrue(store.saved.isEmpty())
 
-        // typing remarks clears that mark, the problem waits for the next save
+        // any edit clears both marks, the next save checks again
         vm.onDraftChange(vm.state.value.draft.copy(remarks = "x"))
         assertFalse(vm.state.value.isRemarksError)
+        assertNull(vm.state.value.problem)
+        vm.save()
         assertEquals(Problem.MISSING_ENCRYPTION, vm.state.value.problem)
     }
 

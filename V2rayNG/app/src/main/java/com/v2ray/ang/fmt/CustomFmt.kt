@@ -22,8 +22,9 @@ object CustomFmt : FmtBase() {
             ?: fullConfig?.outbounds?.firstOrNull { it.protocol.equals(MASQUE, true) }
 
         config.remarks = fullConfig?.remarks ?: System.currentTimeMillis().toString()
-        config.server = outbound?.getServerAddress()
-        config.serverPort = outbound?.getServerPort()?.toString()
+        val nested = if (outbound?.getServerAddress() == null) nestedEndpointOf(str) else null
+        config.server = outbound?.getServerAddress() ?: nested?.first
+        config.serverPort = (outbound?.getServerPort() ?: nested?.second)?.toString()
         config.network = transportOf(str)
 
         return config
@@ -56,6 +57,29 @@ object CustomFmt : FmtBase() {
             "websocket" -> "ws"
             else -> transport
         }
+    }
+
+    /**
+     * The address and port of the first proxy outbound when they sit in settings.vnext[0] or
+     * settings.servers[0], the classic shapes 3X-UI's JSON subscription and the XDRIVE form
+     * write. The bean above reads only the flat settings.address, so those cards had no host.
+     */
+    internal fun nestedEndpointOf(str: String): Pair<String, Int?>? {
+        val root = runCatching { JsonParser.parseString(str) }.getOrNull()
+            ?.takeIf { it.isJsonObject }?.asJsonObject ?: return null
+        val outbounds = root.get("outbounds")?.takeIf { it.isJsonArray }?.asJsonArray ?: return null
+        val proxy = outbounds.asSequence()
+            .mapNotNull { it.takeIf { e -> e.isJsonObject }?.asJsonObject }
+            .firstOrNull { ob -> ob.string("protocol")?.lowercase()?.let { it !in NOT_PROXY } == true }
+            ?: return null
+        val settings = proxy.get("settings")?.takeIf { it.isJsonObject }?.asJsonObject ?: return null
+        val server = sequenceOf("vnext", "servers")
+            .mapNotNull { key -> settings.get(key)?.takeIf { it.isJsonArray }?.asJsonArray?.firstOrNull() }
+            .mapNotNull { it.takeIf { e -> e.isJsonObject }?.asJsonObject }
+            .firstOrNull() ?: return null
+        val address = server.string("address")?.takeIf { it.isNotBlank() } ?: return null
+        val port = server.get("port")?.takeIf { it.isJsonPrimitive && it.asJsonPrimitive.isNumber }?.asInt
+        return address to port
     }
 
     private fun JsonObject.string(key: String): String? =

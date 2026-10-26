@@ -19,6 +19,31 @@ class CustomFmtTest {
                {"protocol":"freedom","tag":"direct"}"""
         )
         assertEquals("xdrive", CustomFmt.transportOf(json))
+        val profile = CustomFmt.parse(json)
+        assertEquals("drive", profile.server)
+        assertEquals("443", profile.serverPort)
+    }
+
+    @Test
+    fun theServersShapeGivesTheHostToo() {
+        val json = config("""{"protocol":"trojan","settings":{"servers":[{"address":"t.example","port":8443,"password":"p"}]}}""")
+        assertEquals(Pair("t.example", 8443), CustomFmt.nestedEndpointOf(json))
+        assertEquals("t.example", CustomFmt.parse(json).server)
+    }
+
+    @Test
+    fun theFlatAddressStillWins() {
+        val json = config("""{"protocol":"vless","settings":{"address":"flat.example","port":2053,"vnext":[{"address":"nested","port":1}]}}""")
+        val profile = CustomFmt.parse(json)
+        assertEquals("flat.example", profile.server)
+        assertEquals("2053", profile.serverPort)
+    }
+
+    @Test
+    fun noHostWithoutAProxyOrAnAddress() {
+        assertNull(CustomFmt.nestedEndpointOf(config("""{"protocol":"freedom","settings":{"vnext":[{"address":"x","port":1}]}}""")))
+        assertNull(CustomFmt.nestedEndpointOf(config("""{"protocol":"vless","settings":{"vnext":[{"port":1}]}}""")))
+        assertNull(CustomFmt.nestedEndpointOf("not json"))
     }
 
     @Test

@@ -74,8 +74,9 @@ class ServerXDriveViewModel(
         _state.update {
             it.copy(
                 draft = draft,
-                // the problem line stays until the next save checks again
+                // an edit clears the message, the next save checks again
                 isRemarksError = it.isRemarksError && draft.remarks.isBlank(),
+                problem = null,
             )
         }
     }

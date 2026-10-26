@@ -45,7 +45,11 @@ internal fun buildServerRowUiModel(
     )
 }
 
-private fun serverProtocolDescription(profile: ProfileItem): String {
+internal fun serverProtocolDescription(profile: ProfileItem): String {
+    // a JSON profile names the transport CustomFmt read from it, so an XDRIVE card says xdrive
+    if (profile.configType == EConfigType.CUSTOM) {
+        return listOfNotNull(profile.configType.name, profile.network?.takeIf { it.isNotBlank() }).joinToString(" / ")
+    }
     if (profile.configType.isComplexType()) return profile.configType.name
     val parts = mutableListOf(profile.configType.name)
     if (profile.configType == EConfigType.AETHER) {
