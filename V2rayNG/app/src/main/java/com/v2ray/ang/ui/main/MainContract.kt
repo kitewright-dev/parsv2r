@@ -54,6 +54,7 @@ sealed interface MainAction {
     data object ImportClipboard : MainAction
     data object ImportConfigLocal : MainAction
     data class ImportManually(val type: Int) : MainAction
+    data object CreateXDrive : MainAction
     data object RestartService : MainAction
     data object LocateSelectedServer : MainAction
 

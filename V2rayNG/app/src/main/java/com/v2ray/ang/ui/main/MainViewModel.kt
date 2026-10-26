@@ -329,6 +329,7 @@ class MainViewModel(
             MainAction.ImportClipboard,
             MainAction.ImportConfigLocal,
             is MainAction.ImportManually,
+            MainAction.CreateXDrive,
             MainAction.RestartService,
             MainAction.LocateSelectedServer,
             is MainAction.EditServer,

@@ -98,6 +98,15 @@ object CoreConfigManager {
 
         val json = JsonUtil.parseString(raw)?.takeIf { it.isJsonObject }?.asJsonObject ?: return result
 
+        // An XDRIVE outbound without mux makes the core refuse the whole config, see XDriveRepair
+        val xdrive = XDriveRepair.repair(json)
+        if (xdrive.changed) {
+            LogUtil.i(AppConfig.TAG, "XDRIVE: repaired $xdrive")
+        }
+        if (xdrive.missingEncryption > 0) {
+            LogUtil.w(AppConfig.TAG, "XDRIVE: ${xdrive.missingEncryption} outbound(s) lack VLESS encryption, the core will refuse them")
+        }
+
         // Inject or remove traffic statistics configuration based on user preference
         if (MmkvManager.decodeSettingsBool(AppConfig.PREF_SPEED_ENABLED) == true) {
             if (!json.has("stats")) {

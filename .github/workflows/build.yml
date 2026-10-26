@@ -197,6 +197,23 @@ jobs:
           ./gradlew assembleRelease -PappVersion="${{ inputs.release_tag }}" -Pandroid.injected.signing.store.file=${{ steps.android_keystore.outputs.filePath }} -Pandroid.injected.signing.store.password=${{ secrets.APP_KEYSTORE_PASSWORD }} -Pandroid.injected.signing.key.alias=${{ secrets.APP_KEYSTORE_ALIAS }} -Pandroid.injected.signing.key.password=${{ secrets.APP_KEY_PASSWORD }}
         } 2>&1 | tee build-log.txt
 
+    # XDriveFmtTest writes the XDRIVE configs the app builds and repairs. Here they run through
+    # the core the app ships (built from the same AndroidLibXrayLite go.mod) against a real
+    # WebDAV server, so a release can't carry XDRIVE configs the core refuses or can't move data on.
+    - name: Setup Go for the XDRIVE check
+      uses: actions/setup-go@v6
+      with:
+        go-version-file: 'AndroidLibXrayLite/go.mod'
+        cache: false
+
+    - name: XDRIVE end-to-end on the shipped core
+      run: |
+        set -o pipefail
+        {
+          ( cd AndroidLibXrayLite && GOFLAGS=-mod=mod go build -trimpath -o /tmp/xray github.com/xtls/xray-core/main )
+          bash tools/xdrive-e2e/run.sh /tmp/xray V2rayNG/app/build/xdrive-e2e
+        } 2>&1 | tee -a build-log.txt
+
     - name: Save the log where it can be read
       if: failure()
       uses: ./.github/actions/publish-log

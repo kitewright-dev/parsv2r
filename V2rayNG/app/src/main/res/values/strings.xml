@@ -631,4 +631,40 @@
         <item>Aggressive</item>
     </string-array>
 
+    <!-- XDRIVE -->
+    <string name="xdrive_title">XDRIVE</string>
+    <string name="menu_item_import_config_manually_xdrive">Add [XDRIVE]</string>
+    <string name="xdrive_intro">XDRIVE carries VLESS through files in a shared storage, so this phone never connects to the server itself. Enter the ID and the VLESS encryption your server gives you, and the same storage and folder the server uses.</string>
+    <string name="xdrive_lab_encryption">VLESS encryption</string>
+    <string name="xdrive_hint_encryption">mlkem768x25519plus.native.0rtt…</string>
+    <string name="xdrive_lab_storage">Storage</string>
+    <string name="xdrive_storage_google_drive">Google Drive</string>
+    <string name="xdrive_storage_webdav">WebDAV</string>
+    <string name="xdrive_storage_template">Custom template</string>
+    <string name="xdrive_lab_drive_folder">Folder ID</string>
+    <string name="xdrive_lab_folder">Folder</string>
+    <string name="xdrive_hint_folder">The folder the server uses. It has to exist already.</string>
+    <string name="xdrive_lab_client_id">Client ID</string>
+    <string name="xdrive_lab_client_secret">Client secret</string>
+    <string name="xdrive_lab_refresh_token">Refresh token</string>
+    <string name="xdrive_lab_dav_url">WebDAV address</string>
+    <string name="xdrive_hint_dav_url">https://dav.example.com/remote.php/dav/files/me</string>
+    <string name="xdrive_hint_dav_url_atomic">Use a server that shows a file only once its upload has finished. One that writes uploads in place breaks the connection now and then.</string>
+    <string name="xdrive_lab_dav_username">Username</string>
+    <string name="xdrive_lab_dav_password">Password</string>
+    <string name="xdrive_lab_template">Template (JSON)</string>
+    <string name="xdrive_lab_template_secrets">Secrets, one per line ({secret0}, {secret1}…)</string>
+    <string name="xdrive_warning_http">Without https the storage password travels unencrypted. The traffic itself stays encrypted by VLESS.</string>
+    <string name="xdrive_note_speed">XDRIVE is slower than a direct transport. It is meant for times when the direct ones are blocked.</string>
+    <string name="xdrive_error_id_missing">Enter the ID</string>
+    <string name="xdrive_error_id_invalid">The ID has to be a UUID or at most 30 bytes of text</string>
+    <string name="xdrive_error_encryption_missing">Enter the VLESS encryption from your server</string>
+    <string name="xdrive_error_encryption_invalid">This isn’t a VLESS encryption value. It starts with mlkem768x25519plus.</string>
+    <string name="xdrive_error_folder_missing">Enter the folder</string>
+    <string name="xdrive_error_folder_invalid">The folder has characters that aren’t allowed here</string>
+    <string name="xdrive_error_drive_secrets">Enter the client ID, client secret and refresh token</string>
+    <string name="xdrive_error_dav_url">Enter a WebDAV address that starts with https://</string>
+    <string name="xdrive_error_dav_username">Enter the WebDAV username</string>
+    <string name="xdrive_error_template">The template has to be a JSON object with put, get, delete and list, and a namesRegex in list</string>
+
 </resources>

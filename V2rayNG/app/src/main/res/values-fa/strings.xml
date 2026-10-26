@@ -629,4 +629,40 @@
         <item>شدید</item>
     </string-array>
 
+    <!-- XDRIVE -->
+    <string name="xdrive_title">XDRIVE</string>
+    <string name="menu_item_import_config_manually_xdrive">افزودن [XDRIVE]</string>
+    <string name="xdrive_intro">XDRIVE ترافیک VLESS را از طریق فایل‌هایی در یک فضای ذخیره‌سازی مشترک جابه‌جا می‌کند، پس این گوشی هیچ‌وقت مستقیم به خود سرور وصل نمی‌شود. شناسه و رمزنگاری VLESS را که سرورتان می‌دهد وارد کنید، و همان فضای ذخیره‌سازی و پوشه‌ای که سرور استفاده می‌کند.</string>
+    <string name="xdrive_lab_encryption">رمزنگاری VLESS</string>
+    <string name="xdrive_hint_encryption">mlkem768x25519plus.native.0rtt…</string>
+    <string name="xdrive_lab_storage">فضای ذخیره‌سازی</string>
+    <string name="xdrive_storage_google_drive">گوگل درایو</string>
+    <string name="xdrive_storage_webdav">WebDAV</string>
+    <string name="xdrive_storage_template">قالب دلخواه</string>
+    <string name="xdrive_lab_drive_folder">شناسه‌ی پوشه</string>
+    <string name="xdrive_lab_folder">پوشه</string>
+    <string name="xdrive_hint_folder">همان پوشه‌ای که سرور استفاده می‌کند. باید از قبل ساخته شده باشد.</string>
+    <string name="xdrive_lab_client_id">Client ID</string>
+    <string name="xdrive_lab_client_secret">Client secret</string>
+    <string name="xdrive_lab_refresh_token">Refresh token</string>
+    <string name="xdrive_lab_dav_url">آدرس WebDAV</string>
+    <string name="xdrive_hint_dav_url">https://dav.example.com/remote.php/dav/files/me</string>
+    <string name="xdrive_hint_dav_url_atomic">از سروری استفاده کنید که فایل را فقط بعد از تمام شدن آپلودش نشان بدهد. سروری که آپلود را همان‌جا روی فایل می‌نویسد، هر از گاهی اتصال را قطع می‌کند.</string>
+    <string name="xdrive_lab_dav_username">نام کاربری</string>
+    <string name="xdrive_lab_dav_password">رمز عبور</string>
+    <string name="xdrive_lab_template">قالب (JSON)</string>
+    <string name="xdrive_lab_template_secrets">رمزها، هر کدام در یک خط ({secret0}، {secret1}…)</string>
+    <string name="xdrive_warning_http">بدون https رمز فضای ذخیره‌سازی رمزنشده جابه‌جا می‌شود. خود ترافیک با VLESS رمزنگاری‌شده می‌ماند.</string>
+    <string name="xdrive_note_speed">XDRIVE از روش‌های مستقیم کندتر است. برای وقتی است که روش‌های مستقیم بسته شده‌اند.</string>
+    <string name="xdrive_error_id_missing">شناسه را وارد کنید</string>
+    <string name="xdrive_error_id_invalid">شناسه باید UUID باشد یا متنی تا ۳۰ بایت</string>
+    <string name="xdrive_error_encryption_missing">رمزنگاری VLESS سرورتان را وارد کنید</string>
+    <string name="xdrive_error_encryption_invalid">این مقدار رمزنگاری VLESS نیست. باید با mlkem768x25519plus. شروع شود</string>
+    <string name="xdrive_error_folder_missing">پوشه را وارد کنید</string>
+    <string name="xdrive_error_folder_invalid">نام پوشه نویسه‌های غیرمجاز دارد</string>
+    <string name="xdrive_error_drive_secrets">Client ID، Client secret و Refresh token را وارد کنید</string>
+    <string name="xdrive_error_dav_url">یک آدرس WebDAV وارد کنید که با https:// شروع شود</string>
+    <string name="xdrive_error_dav_username">نام کاربری WebDAV را وارد کنید</string>
+    <string name="xdrive_error_template">قالب باید یک شیء JSON با put، get، delete و list باشد و داخل list یک namesRegex داشته باشد</string>
+
 </resources>

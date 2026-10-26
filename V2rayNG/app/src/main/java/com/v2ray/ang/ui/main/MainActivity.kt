@@ -20,6 +20,7 @@ import com.v2ray.ang.enums.PermissionType
 import com.v2ray.ang.extension.toast
 import com.v2ray.ang.extension.toastError
 import com.v2ray.ang.extension.toastSuccess
+import com.v2ray.ang.fmt.XDriveFmt
 import com.v2ray.ang.handler.AngConfigManager
 import com.v2ray.ang.handler.MmkvManager
 import com.v2ray.ang.handler.SettingsChangeManager
@@ -35,6 +36,7 @@ import com.v2ray.ang.ui.routing.RoutingSettingActivity
 import com.v2ray.ang.ui.server.ProfileEditorResult
 import com.v2ray.ang.ui.server.ServerAetherActivity
 import com.v2ray.ang.ui.server.ServerCustomConfigActivity
+import com.v2ray.ang.ui.server.ServerXDriveActivity
 import com.v2ray.ang.ui.server.ServerGroupActivity
 import com.v2ray.ang.ui.server.ServerHttpActivity
 import com.v2ray.ang.ui.server.ServerHysteria2Activity
@@ -112,6 +114,7 @@ class MainActivity : HelperBaseComponentActivity() {
                     MainAction.ImportClipboard -> importClipboard()
                     MainAction.ImportConfigLocal -> importConfigLocal()
                     is MainAction.ImportManually -> importManually(action.type)
+                    MainAction.CreateXDrive -> createXDrive()
                     MainAction.RestartService -> LauncherManager.restartServiceOrStart(this, ::requestServiceStart)
                     MainAction.LocateSelectedServer -> mainViewModel.triggerLocateSelectedServer()
                     is MainAction.SelectServer -> setSelectServer(action.guid)
@@ -219,6 +222,13 @@ class MainActivity : HelperBaseComponentActivity() {
         profileEditorLauncher.launch(intent)
     }
 
+    private fun createXDrive() {
+        profileEditorLauncher.launch(
+            Intent(this, ServerXDriveActivity::class.java)
+                .putExtra("subscriptionId", mainViewModel.uiState.value.selectedGroupId)
+        )
+    }
+
     private fun importQRcode() {
         launchQRCodeScanner { scanResult ->
             if (scanResult != null) {
@@ -251,7 +261,12 @@ class MainActivity : HelperBaseComponentActivity() {
 
     private fun editServer(guid: String, profile: ProfileItem) {
         val activityClass = when (profile.configType) {
-            EConfigType.CUSTOM -> ServerCustomConfigActivity::class.java
+            // a config the XDRIVE form wrote, and would write back unchanged, reopens in the form
+            EConfigType.CUSTOM -> if (XDriveFmt.parseFormConfig(MmkvManager.decodeServerRaw(guid)) != null) {
+                ServerXDriveActivity::class.java
+            } else {
+                ServerCustomConfigActivity::class.java
+            }
             EConfigType.POLICYGROUP -> ServerGroupActivity::class.java
             EConfigType.PROXYCHAIN -> ServerProxyChainActivity::class.java
             EConfigType.VMESS -> ServerVmessActivity::class.java

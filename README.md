@@ -25,6 +25,7 @@ ParsV2R یه اپ برای وصل شدن با کانفیگ‌های V2Ray و Xra
 چیزهایی که بهش اضافه شده:
 
 - **هسته‌ی Aether** برای اتصال بدون سرور و بدون کانفیگ
+- **پشتیبانی کامل از XDRIVE**، ترنسپورت جدید Xray که ترافیک رو از روی فضای ابری رد میکنه
 - **هسته‌ی Xray پچ‌شده** که به کانفیگ‌های VLESS و Trojan بدون رمزنگاری روی آدرس‌های عمومی هم وصل میشه
 - **گزینه‌های cipherSuites و فینگرپرینت unsafe** هم تو تنظیمات هم تو لینک‌های اشتراکی
 - **مسیریابی آماده برای ایران** که سایت‌های داخلی رو مستقیم میفرسته
@@ -64,6 +65,28 @@ ParsV2R یه اپ برای وصل شدن با کانفیگ‌های V2Ray و Xra
 - اولش یه چند میلی‌ثانیه کندتر وصل میشه که طبیعیه
 
 این تنظیمات از آموزش‌هایی که تو تلگرام دست به دست میشه اومده و همون هسته‌ی PattNG رو استفاده میکنه.
+
+## XDRIVE
+
+XDRIVE یه ترنسپورت تازه‌ی Xray هست (از نسخه‌ی 26.9.30). فرقش اینه که گوشیت اصلا به سرور وصل نمیشه. هر دو طرف فایل‌های کوچیک رو تو یه فضای ذخیره‌سازی مشترک مثل گوگل درایو یا یه WebDAV میذارن و برمیدارن. پس فیلترینگ فقط میبینه داری با اون فضای ذخیره‌سازی کار میکنی و آی‌پی سرور هیچ جا وسط نیست. واسه وقتایی ساخته شده که لیست سفید فعاله.
+
+XDRIVE لینک vless:// نداره و پنل‌ها هم عمدا لینک براش نمیسازن، چون رمزهای فضای ذخیره‌سازی باید تو لینک و QR لو برن. پس دو راه داری:
+
+**اگه پنلت بهت ساب JSON میده** (مثل 3X-UI)، همون ساب رو مثل همیشه اضافه کن. یه مشکل رایج رو هم اپ خودش درست میکنه: 3X-UI به طور پیش‌فرض کانفیگ XDRIVE رو بدون Mux میفرسته و هسته‌ی جدید Xray همچین کانفیگی رو کلا قبول نمیکنه و هیچ کانفیگی بالا نمیاد. ParsV2R موقع اتصال Mux رو خودش روشن میکنه و flow رو برمیداره، بدون اینکه به کانفیگ ذخیره‌شده‌ات دست بزنه.
+
+**اگه میخوای خودت بسازیش**، روی + بزن و «افزودن [XDRIVE]» رو انتخاب کن. شناسه و رمزنگاری VLESS رو از سرورت بگیر (XDRIVE فقط با VLESS Encryption کار میکنه)، فضای ذخیره‌سازی رو انتخاب کن و همون پوشه‌ای رو بزن که سرور استفاده میکنه:
+
+- **گوگل درایو:** شناسه‌ی پوشه، Client ID، Client secret و Refresh token
+- **WebDAV:** آدرس، نام کاربری، رمز و اسم پوشه. پوشه باید از قبل ساخته شده باشه
+- **قالب دلخواه:** هر API ذخیره‌سازی که بشه با قالب `template` خود Xray توصیفش کرد
+
+چند تا چیز رو بدون:
+
+- از روش‌های مستقیم کندتره. جایگزین xhttp نیست، واسه روزیه که بقیه بسته شدن
+- سرور WebDAV باید فایل رو فقط وقتی نشون بده که آپلودش تموم شده. تستش کردم و سروری که همون‌جا روی فایل مینویسه (مثلا WsgiDAV) هر از گاهی وسط کار اتصال رو قطع میکنه
+- اینکه خود گوگل درایو یا WebDAV روی خطت باز هست یا نه دست اپ نیست، اول همونو چک کن
+
+تو هر بیلد این اپ، کانفیگ‌هایی که اپ میسازه و تعمیر میکنه با همون هسته‌ای که داخل اپه و یه سرور WebDAV واقعی تست میشن و ۳ مگ داده چند بار ازشون رد میشه. اگه یه جاش خراب باشه اصلا نسخه بیرون نمیاد.
 
 ## ساخت کانفیگ Aether
 
@@ -112,4 +135,4 @@ GPL-3.0. لایسنس کدهای استفاده‌شده تو [NOTICE.md](NOTICE
 
 ---
 
-**English:** ParsV2R is an Android V2Ray/Xray client based on v2rayNG, with the Aether (WARP/MASQUE) core from PattNG built in, so you can connect without any config. Grab the `universal` APK from [Releases](https://github.com/kitewright-dev/parsv2r/releases/latest). GPL-3.0.
+**English:** ParsV2R is an Android V2Ray/Xray client based on v2rayNG, with the Aether (WARP/MASQUE) core from PattNG built in, so you can connect without any config. It also supports Xray's XDRIVE transport (traffic over Google Drive or WebDAV): JSON subscriptions from 3X-UI work out of the box, since the app turns on the mux the core now requires, and there's a form to build XDRIVE profiles by hand. Grab the `universal` APK from [Releases](https://github.com/kitewright-dev/parsv2r/releases/latest). GPL-3.0.
