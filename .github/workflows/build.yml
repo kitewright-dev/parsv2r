@@ -128,7 +128,7 @@ jobs:
 
     - name: Setup Go for libv2ray
       if: steps.cache-libv2ray-restore.outputs.cache-hit != 'true'
-      uses: actions/setup-go@v6
+      uses: actions/setup-go@v7
       with:
         go-version-file: 'AndroidLibXrayLite/go.mod'
         cache: false
@@ -201,7 +201,7 @@ jobs:
     # the core the app ships (built from the same AndroidLibXrayLite go.mod) against a real
     # WebDAV server, so a release can't carry XDRIVE configs the core refuses or can't move data on.
     - name: Setup Go for the XDRIVE check
-      uses: actions/setup-go@v6
+      uses: actions/setup-go@v7
       with:
         go-version-file: 'AndroidLibXrayLite/go.mod'
         cache: false
