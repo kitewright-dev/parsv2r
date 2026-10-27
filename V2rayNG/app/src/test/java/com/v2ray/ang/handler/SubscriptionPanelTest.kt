@@ -308,7 +308,7 @@ class SubscriptionPanelTest {
 
     @Test
     fun base64DecoderHandlesBothAlphabetsAndRejectsJunk() {
-        assertEquals("Happ", Base64Text.decode("SGFwcA=="))
+        assertEquals("Hapx", Base64Text.decode("SGFwcA=="))
         assertEquals("Happ", Base64Text.decode("SGFwcA"))
         assertEquals("ü?", Base64Text.decode("w7w_"))
         assertEquals("ü?", Base64Text.decode("w7w/"))

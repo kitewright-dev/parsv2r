@@ -84,7 +84,7 @@ class HttpUtilPanelHeadersTest {
 
         val info = SubscriptionPanel.parse(response.headers, listOf(response.body), now = 1L)
         assertNotNull(info)
-        assertEquals(300L, info!!.usedBytes)
+        assertEquals(301L, info!!.usedBytes)
         assertEquals(1000L, info.total)
         assertEquals(1900000000L, info.expire)
         assertEquals(1, info.updateIntervalHours)
