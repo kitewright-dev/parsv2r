@@ -22,8 +22,6 @@ class SubscriptionPanelTest {
                 "Subscription-Userinfo" to "upload=1073741824; download=2147483648; total=10737418240; expire=1800864000",
                 "Profile-Update-Interval" to "1",
                 "Profile-Title" to "base64:2YbZiNiv2qnYsw==",
-                "Support-Url" to "https://t.me/parsv2r",
-                "Profile-Web-Page-Url" to "https://example.com/sub/abc",
                 "Content-Type" to "text/plain",
             ),
             bodies = listOf("dmxlc3M6Ly8="),
@@ -38,8 +36,6 @@ class SubscriptionPanelTest {
         assertEquals(1800864000L, info.expire)
         assertEquals(1, info.updateIntervalHours)
         assertEquals("نودکس", info.title)
-        assertEquals("https://t.me/parsv2r", info.supportUrl)
-        assertEquals("https://example.com/sub/abc", info.webPageUrl)
         assertEquals(now, info.fetchedAt)
         assertTrue(info.hasUsage)
     }
@@ -51,7 +47,7 @@ class SubscriptionPanelTest {
         // Known names but every value unusable.
         assertNull(
             SubscriptionPanel.parse(
-                mapOf("profile-update-interval" to "0", "support-url" to "javascript:alert(1)"),
+                mapOf("profile-update-interval" to "0", "profile-title" to "   "),
                 emptyList(),
                 now,
             )
@@ -147,18 +143,6 @@ class SubscriptionPanelTest {
         assertEquals("line1\nline2", info.announce)
     }
 
-    @Test
-    fun onlySafeLinksAreKept() {
-        assertEquals("https://t.me/x", SubscriptionPanel.safeUrl("https://t.me/x"))
-        assertEquals("http://a.b/c", SubscriptionPanel.safeUrl(" http://a.b/c "))
-        assertEquals("tg://resolve?domain=parsv2r", SubscriptionPanel.safeUrl("tg://resolve?domain=parsv2r"))
-        assertNull(SubscriptionPanel.safeUrl("javascript:alert(1)"))
-        assertNull(SubscriptionPanel.safeUrl("intent://x#Intent;end"))
-        assertNull(SubscriptionPanel.safeUrl("https://"))
-        assertNull(SubscriptionPanel.safeUrl("https://a b"))
-        assertNull(SubscriptionPanel.safeUrl(""))
-    }
-
     // ---------------- state ----------------
 
     private fun info(used: Long? = null, total: Long? = null, expireMillis: Long? = null) =
@@ -206,23 +190,6 @@ class SubscriptionPanelTest {
         assertEquals(0.25f, SubscriptionPanel.usedFraction(info(used = 25, total = 100)))
         assertEquals(1f, SubscriptionPanel.usedFraction(info(used = 300, total = 100)))
         assertNull(SubscriptionPanel.usedFraction(info(total = 100)))
-    }
-
-    @Test
-    fun remindersFireOncePerDayOrOncePerState() {
-        val low = SubscriptionUsageState.LOW
-        assertTrue(SubscriptionPanel.shouldRemind(low, null, -1, 100))
-        assertFalse(SubscriptionPanel.shouldRemind(low, "LOW", 100, 100), "already reminded today")
-        assertTrue(SubscriptionPanel.shouldRemind(low, "LOW", 99, 100), "next day")
-        assertTrue(SubscriptionPanel.shouldRemind(SubscriptionUsageState.EXPIRING, "LOW", 100, 100), "state changed")
-
-        val expired = SubscriptionUsageState.EXPIRED
-        assertTrue(SubscriptionPanel.shouldRemind(expired, "EXPIRING", 100, 100))
-        assertFalse(SubscriptionPanel.shouldRemind(expired, "EXPIRED", 1, 100), "only once")
-        assertFalse(SubscriptionPanel.shouldRemind(SubscriptionUsageState.EXHAUSTED, "EXHAUSTED", 1, 100))
-
-        assertFalse(SubscriptionPanel.shouldRemind(SubscriptionUsageState.OK, null, -1, 100))
-        assertFalse(SubscriptionPanel.shouldRemind(SubscriptionUsageState.NONE, null, -1, 100))
     }
 
     @Test

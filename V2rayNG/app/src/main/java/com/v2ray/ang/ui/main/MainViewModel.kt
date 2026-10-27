@@ -337,8 +337,7 @@ class MainViewModel(
             MainAction.LocateSelectedServer,
             is MainAction.EditServer,
             is MainAction.ShareClipboard,
-            is MainAction.ShareFullContent,
-            is MainAction.OpenPanelLink -> {
+            is MainAction.ShareFullContent -> {
                 // Handled by Activity via its onAction lambda
             }
         }

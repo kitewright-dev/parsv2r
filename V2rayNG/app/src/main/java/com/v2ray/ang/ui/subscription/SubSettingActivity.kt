@@ -1,7 +1,6 @@
 package com.v2ray.ang.ui.subscription
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
@@ -41,7 +40,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.v2ray.ang.AppConfig
 import com.v2ray.ang.R
 import com.v2ray.ang.extension.toast
-import com.v2ray.ang.extension.toastError
 import com.v2ray.ang.handler.MmkvManager
 import com.v2ray.ang.handler.MmkvManager.rememberMmkvBool
 import com.v2ray.ang.ui.base.BaseComponentActivity
@@ -90,22 +88,13 @@ class SubSettingActivity : BaseComponentActivity() {
             onShareClipboard = { url ->
                 Utils.setClipboard(this, url)
                 toast(getString(R.string.toast_success))
-            },
-            onOpenLink = { url -> openLink(url) },
+            }
         )
     }
 
     override fun onResume() {
         super.onResume()
         viewModel.reload()
-    }
-
-    private fun openLink(url: String) {
-        try {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
-        } catch (e: Exception) {
-            toastError(R.string.toast_failure)
-        }
     }
 
     private fun removeSub(subId: String) {
@@ -123,8 +112,7 @@ fun SubSettingScreen(
     onEditSub: (String) -> Unit,
     onRemoveSub: (String) -> Unit,
     onShareQRCode: (String) -> Unit,
-    onShareClipboard: (String) -> Unit,
-    onOpenLink: (String) -> Unit = {},
+    onShareClipboard: (String) -> Unit
 ) {
     val subscriptions by viewModel.subsFlow.collectAsStateWithLifecycle()
     val nowMillis = remember(subscriptions) { System.currentTimeMillis() }
@@ -258,7 +246,6 @@ fun SubSettingScreen(
                                 SubscriptionPanelBlock(
                                     info = info,
                                     nowMillis = nowMillis,
-                                    onOpenLink = onOpenLink,
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .padding(start = 14.dp, end = 14.dp, bottom = 10.dp),

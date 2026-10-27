@@ -220,10 +220,7 @@ fun MainScreen(
                     }
 
                     uiState.selectedSubPanel?.let { panel ->
-                        SubscriptionPanelStrip(
-                            info = panel,
-                            onOpenLink = { url -> onAction(MainAction.OpenPanelLink(url)) },
-                        )
+                        SubscriptionPanelStrip(info = panel)
                     }
 
                     HorizontalPager(

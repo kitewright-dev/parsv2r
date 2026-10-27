@@ -2,21 +2,17 @@ package com.v2ray.ang.ui.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -25,7 +21,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
@@ -40,17 +35,15 @@ import com.v2ray.ang.handler.SubscriptionUsageState
 import java.util.Locale
 
 /**
- * What a subscription panel reported: traffic used against the plan, time left, the panel's
- * announcement, and its support and website links.
+ * What a subscription panel reported: traffic used against the plan, time left and the
+ * panel's announcement.
  *
  * @param compact the one-block version for the top of the main screen
- * @param onOpenLink opens a support or website link
  */
 @Composable
 fun SubscriptionPanelBlock(
     info: SubscriptionPanelInfo,
     nowMillis: Long,
-    onOpenLink: (String) -> Unit,
     modifier: Modifier = Modifier,
     compact: Boolean = false,
 ) {
@@ -128,28 +121,6 @@ fun SubscriptionPanelBlock(
                 overflow = TextOverflow.Ellipsis,
             )
         }
-
-        if (info.supportUrl != null || info.webPageUrl != null) {
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
-                modifier = Modifier.padding(top = 2.dp),
-            ) {
-                info.supportUrl?.let { url ->
-                    PanelLinkButton(
-                        label = stringResource(R.string.sub_panel_support),
-                        telegram = isTelegram(url),
-                        onClick = { onOpenLink(url) },
-                    )
-                }
-                info.webPageUrl?.let { url ->
-                    PanelLinkButton(
-                        label = stringResource(R.string.sub_panel_website),
-                        telegram = isTelegram(url),
-                        onClick = { onOpenLink(url) },
-                    )
-                }
-            }
-        }
     }
 }
 
@@ -157,7 +128,6 @@ fun SubscriptionPanelBlock(
 @Composable
 fun SubscriptionPanelStrip(
     info: SubscriptionPanelInfo,
-    onOpenLink: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val scheme = MaterialTheme.colorScheme
@@ -166,7 +136,6 @@ fun SubscriptionPanelStrip(
     SubscriptionPanelBlock(
         info = info,
         nowMillis = now,
-        onOpenLink = onOpenLink,
         compact = true,
         modifier = modifier
             .padding(horizontal = 12.dp, vertical = 6.dp)
@@ -176,21 +145,6 @@ fun SubscriptionPanelStrip(
             .border(1.dp, scheme.outlineVariant.copy(alpha = 0.6f), shape)
             .padding(horizontal = 14.dp, vertical = 10.dp),
     )
-}
-
-@Composable
-private fun PanelLinkButton(label: String, telegram: Boolean, onClick: () -> Unit) {
-    TextButton(onClick = onClick) {
-        if (telegram) {
-            Icon(
-                painter = painterResource(R.drawable.ic_telegram_24dp),
-                contentDescription = null,
-                modifier = Modifier.size(16.dp),
-            )
-            Spacer(Modifier.width(6.dp))
-        }
-        Text(text = label, style = MaterialTheme.typography.labelLarge)
-    }
 }
 
 @Composable
@@ -238,12 +192,6 @@ private fun formatDate(millis: Long, locale: Locale): String {
     return android.icu.text.DateFormat
         .getDateInstance(android.icu.text.DateFormat.MEDIUM, uLocale)
         .format(java.util.Date(millis))
-}
-
-private fun isTelegram(url: String): Boolean {
-    val lower = url.lowercase(Locale.ROOT)
-    return lower.startsWith("tg://") || lower.startsWith("https://t.me/") || lower.startsWith("http://t.me/") ||
-            lower.startsWith("https://telegram.me/")
 }
 
 private val WarnAmber = Color(0xFFE0922A)

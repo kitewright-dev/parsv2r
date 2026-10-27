@@ -16,8 +16,6 @@ data class SubscriptionPanelInfo(
     val expire: Long? = null,
     val title: String? = null,
     val updateIntervalHours: Int? = null,
-    val supportUrl: String? = null,
-    val webPageUrl: String? = null,
     val announce: String? = null,
     val fetchedAt: Long = 0L,
 ) {
@@ -31,7 +29,7 @@ data class SubscriptionPanelInfo(
 
     val isEmpty: Boolean
         get() = !hasUsage && title == null && updateIntervalHours == null &&
-                supportUrl == null && webPageUrl == null && announce == null
+                announce == null
 }
 
 /** How a subscription stands, in the order the app should warn about it. */
@@ -60,22 +58,17 @@ object SubscriptionPanel {
     const val HEADER_USERINFO = "subscription-userinfo"
     const val HEADER_TITLE = "profile-title"
     const val HEADER_UPDATE_INTERVAL = "profile-update-interval"
-    const val HEADER_SUPPORT_URL = "support-url"
-    const val HEADER_WEB_PAGE_URL = "profile-web-page-url"
     const val HEADER_ANNOUNCE = "announce"
 
     private val KNOWN = setOf(
         HEADER_USERINFO,
         HEADER_TITLE,
         HEADER_UPDATE_INTERVAL,
-        HEADER_SUPPORT_URL,
-        HEADER_WEB_PAGE_URL,
         HEADER_ANNOUNCE,
     )
 
     const val MAX_TITLE = 25
     const val MAX_ANNOUNCE = 200
-    const val MAX_URL = 2048
 
     /** Longest auto-update interval taken from a panel: 30 days. */
     const val MAX_INTERVAL_HOURS = 720
@@ -112,8 +105,6 @@ object SubscriptionPanel {
             expire = usage["expire"]?.let(::normalizeExpire)?.takeIf { it > 0L },
             title = values[HEADER_TITLE]?.let(::decodeValue)?.let { cleanText(it, MAX_TITLE) },
             updateIntervalHours = values[HEADER_UPDATE_INTERVAL]?.let(::parseIntervalHours),
-            supportUrl = values[HEADER_SUPPORT_URL]?.let(::decodeValue)?.let(::safeUrl),
-            webPageUrl = values[HEADER_WEB_PAGE_URL]?.let(::decodeValue)?.let(::safeUrl),
             announce = values[HEADER_ANNOUNCE]?.let(::decodeValue)?.let { cleanText(it, MAX_ANNOUNCE) },
             fetchedAt = now,
         )
@@ -180,16 +171,6 @@ object SubscriptionPanel {
         }
     }
 
-    /** Only http, https and tg links are opened from a panel; anything else is dropped. */
-    internal fun safeUrl(raw: String): String? {
-        val url = raw.trim()
-        if (url.isEmpty() || url.length > MAX_URL || url.any { it.isWhitespace() || it.isISOControl() }) return null
-        val lower = url.lowercase(Locale.ROOT)
-        val allowed = (lower.startsWith("https://") || lower.startsWith("http://")) && url.length > lower.indexOf("://") + 3 ||
-                lower.startsWith("tg://")
-        return url.takeIf { allowed }
-    }
-
     // ---------------------------------------------------------------------
     // Decisions
     // ---------------------------------------------------------------------
@@ -224,25 +205,6 @@ object SubscriptionPanel {
         val used = info.usedBytes ?: return null
         return (used.toDouble() / total.toDouble()).coerceIn(0.0, 1.0).toFloat()
     }
-
-    /**
-     * Whether to post a reminder now. Running low and expiring soon remind at most once a day;
-     * expired and used-up remind once, when the state is first reached.
-     *
-     * @param lastState the state at the last reminder, by enum name, or null
-     * @param lastDay the local day number of the last reminder, or a negative value
-     * @param today the local day number now
-     */
-    fun shouldRemind(state: SubscriptionUsageState, lastState: String?, lastDay: Long, today: Long): Boolean =
-        when (state) {
-            SubscriptionUsageState.LOW, SubscriptionUsageState.EXPIRING ->
-                lastDay != today || lastState != state.name
-
-            SubscriptionUsageState.EXHAUSTED, SubscriptionUsageState.EXPIRED ->
-                lastState != state.name
-
-            SubscriptionUsageState.NONE, SubscriptionUsageState.OK -> false
-        }
 
     /**
      * The auto-update interval in minutes, or null when the subscription should not auto-update.

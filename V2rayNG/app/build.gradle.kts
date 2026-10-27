@@ -13,7 +13,7 @@ android {
         applicationId = "com.parsv2r.app"
         minSdk = 24
         targetSdk = 37
-        versionCode = 753
+        versionCode = 754
         versionName = (project.findProperty("appVersion") as? String)?.takeIf { it.isNotBlank() } ?: "2.3.10"
 
         val abiFilterList = (properties["ABI_FILTERS"] as? String)?.split(';')

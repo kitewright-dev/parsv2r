@@ -42,9 +42,6 @@ sealed interface MainAction {
 
     /** The app came to the foreground: refresh subscriptions that are due. */
     data object AppForeground : MainAction
-
-    /** Open a panel-provided link (support, website) outside the app. */
-    data class OpenPanelLink(val url: String) : MainAction
     data object RefreshGroups : MainAction
     data object ToggleService : MainAction
     data object TestCurrentServer : MainAction

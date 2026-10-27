@@ -46,42 +46,6 @@ object NotificationHelper {
     }
 
     /**
-     * Posts a reminder the user should notice (default importance, dismissible), opening
-     * [contentIntent] when tapped. Each [tag] keeps its own notification, so reminders for two
-     * subscriptions do not replace each other.
-     */
-    fun notifyReminder(
-        context: Context,
-        tag: String,
-        title: String,
-        content: String,
-        contentIntent: android.app.PendingIntent?,
-    ) {
-        val channelType = NotificationChannelType.SUBSCRIPTION_REMINDER
-        ensureNotificationChannel(
-            context = context,
-            channelId = channelType.channelId,
-            channelNameRes = channelType.channelNameRes,
-            importance = NotificationManager.IMPORTANCE_DEFAULT,
-        )
-        val channelId = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) channelType.channelId else ""
-        val builder = NotificationCompat.Builder(context, channelId)
-            .setSmallIcon(R.drawable.ic_stat_name)
-            .setContentTitle(title)
-            .setContentText(content)
-            .setStyle(NotificationCompat.BigTextStyle().bigText(content))
-            .setAutoCancel(true)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setCategory(NotificationCompat.CATEGORY_REMINDER)
-            .apply { contentIntent?.let(::setContentIntent) }
-        try {
-            getNotificationManager(context).notify(tag, channelType.notificationId, builder.build())
-        } catch (e: SecurityException) {
-            // Notification permission withdrawn: nothing to show, nothing to fix here.
-        }
-    }
-
-    /**
      * Update an existing notification's content.
      * Optimized for high-frequency updates (100+/sec).
      * Reuses cached Builder to minimize allocation overhead.

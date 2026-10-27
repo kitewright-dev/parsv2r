@@ -23,9 +23,19 @@ class SubscriptionItemStorageTest {
         assertNull(item.panelInfo)
         assertTrue(item.followPanelInterval, "panels are followed unless the user opts out")
         assertFalse(item.autoTitle)
-        assertNull(item.reminderState)
-        assertEquals(-1L, item.reminderDay)
         assertNull(SubscriptionUpdater.intervalMinutes(item), "no panel interval and auto-update off")
+    }
+
+    @Test
+    fun aSubscriptionSavedByPars14WithRemovedFieldsStillLoads() {
+        val saved = """{"remarks":"tunnel","url":"https://p.example/sub/x","reminderState":"EXPIRED","reminderDay":20388,
+            "panelInfo":{"download":5,"total":10,"expire":1800000000,"supportUrl":"https://t.me/x",
+            "webPageUrl":"https://x.example","fetchedAt":3}}"""
+        val item = JsonUtil.fromJsonSafe(saved, SubscriptionItem::class.java)!!
+        assertEquals("tunnel", item.remarks)
+        assertEquals(5L, item.panelInfo?.download)
+        assertEquals(10L, item.panelInfo?.total)
+        assertTrue(item.followPanelInterval)
     }
 
     @Test

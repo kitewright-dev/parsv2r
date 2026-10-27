@@ -1,7 +1,6 @@
 package com.v2ray.ang.ui.main
 
 import android.content.Intent
-import android.net.Uri
 import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
@@ -107,15 +106,6 @@ class MainActivity : HelperBaseComponentActivity() {
         mainViewModel.onAction(MainAction.AppForeground)
     }
 
-    private fun openPanelLink(url: String) {
-        try {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-        } catch (e: Exception) {
-            LogUtil.w(AppConfig.TAG, "No app can open the panel link: ${e.javaClass.simpleName}")
-            toastError(R.string.toast_failure)
-        }
-    }
-
     @Composable
     override fun ScreenContent() {
         BackHandler { moveTaskToBack(false) }
@@ -136,7 +126,6 @@ class MainActivity : HelperBaseComponentActivity() {
                     is MainAction.EditServer -> editServer(action.guid, action.profile)
                     is MainAction.ShareClipboard -> shareToClipboard(action.guid)
                     is MainAction.ShareFullContent -> shareFullContentAsync(action.guid)
-                    is MainAction.OpenPanelLink -> openPanelLink(action.url)
                     else -> mainViewModel.onAction(action)
                 }
             },

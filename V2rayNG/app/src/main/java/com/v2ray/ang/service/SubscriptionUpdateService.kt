@@ -15,7 +15,6 @@ import com.v2ray.ang.extension.serializable
 import com.v2ray.ang.handler.AngConfigManager
 import com.v2ray.ang.handler.AppLocaleManager
 import com.v2ray.ang.handler.MmkvManager
-import com.v2ray.ang.handler.SubscriptionReminder
 import com.v2ray.ang.helper.NotificationHelper
 import com.v2ray.ang.util.LogUtil
 import kotlinx.coroutines.CompletableDeferred
@@ -152,12 +151,6 @@ class SubscriptionUpdateService : Service() {
                 )
                 AngConfigManager.sortByTestResultsForSub(subId)
             }
-        }
-
-        try {
-            SubscriptionReminder.check(this, subId)
-        } catch (e: Exception) {
-            LogUtil.e(AppConfig.TAG, "SubscriptionUpdateService: reminder check failed for $subId", e)
         }
 
         LogUtil.i(AppConfig.TAG, "SubscriptionUpdateService: Finished ${subItem.remarks}")

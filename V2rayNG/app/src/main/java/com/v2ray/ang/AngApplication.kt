@@ -1,7 +1,9 @@
 package com.v2ray.ang
 
 import android.app.Application
+import android.app.NotificationManager
 import android.content.Context
+import android.os.Build
 import androidx.core.content.ContextCompat
 import androidx.work.Configuration
 import androidx.work.WorkManager
@@ -47,5 +49,21 @@ class AngApplication : Application() {
 
         // Initialize theme state from MMKV
         ThemeManager.refresh()
+
+        removeRetiredNotificationChannels()
+    }
+
+    /**
+     * v2.3.10-pars14 had a subscription reminder channel that was taken out again. Deleting it
+     * clears any reminder still in the shade and the leftover entry in the app's notification
+     * settings. A no-op once it is gone.
+     */
+    private fun removeRetiredNotificationChannels() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
+        try {
+            getSystemService(NotificationManager::class.java)
+                ?.deleteNotificationChannel("subscription_reminder_channel")
+        } catch (_: Exception) {
+        }
     }
 }
