@@ -1,0 +1,221 @@
+job:    fork
+commit: d621d5eda6e0fafcd8e4ae902c02a529c3e17362
+run:    https://github.com/kitewright-dev/parsv2r/actions/runs/40537100589
+when:   2026-10-27T16:07:09Z
+
+---- last 400 lines ----
+Downloading https://services.gradle.org/distributions/gradle-9.8.0-bin.zip
+..............10%..............20%...............30%..............40%...............50%..............60%...............70%..............80%...............90%..............100%
+
+Welcome to Gradle 9.8.0!
+
+Here are the highlights of this release:
+ - Java 27 support
+ - Maven mirror settings reuse
+ - Linked problem locations in build output
+
+For more details see https://docs.gradle.org/9.8.0/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+> Configure project :app
+WARNING: The option setting 'android.usesSdkInManifest.disallowed=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.sdk.defaultTargetSdkToCompileSdkIfUnset=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.enableAppCompileTimeRClass=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.builtInKotlin=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.newDsl=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.r8.optimizedResourceShrinking=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.defaults.buildfeatures.resvalues=true' is deprecated.
+The current default is 'false'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: API 'applicationVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling applicationVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+WARNING: API 'testVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling testVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+WARNING: API 'unitTestVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling unitTestVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/build.gradle.kts:8:1: 'fun Project.android(configure: Action<BaseAppModuleExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.ApplicationExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/build.gradle.kts:21:30: 'val properties: (Mutable)Map<String, out Any?>' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/build.gradle.kts:68:21: 'fun srcDirs(vararg srcDirs: Any): Any' is deprecated. Use `directories` mutable set instead.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+w: ⚠️ Deprecated 'org.jetbrains.kotlin.android' plugin usage
+The 'org.jetbrains.kotlin.android' plugin in project ':app' is no longer required for Kotlin support since AGP 9.0.
+Solution: Remove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.
+See https://kotl.in/gradle/agp-built-in-kotlin for more details.
+
+
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :app:prePlaystoreDebugBuild UP-TO-DATE
+> Task :app:generatePlaystoreDebugBuildConfig
+> Task :app:generatePlaystoreDebugResValues
+> Task :app:checkPlaystoreDebugAarMetadata
+> Task :app:mapPlaystoreDebugSourceSetPaths
+> Task :app:processPlaystoreDebugNavigationResources
+> Task :app:compilePlaystoreDebugNavigationResources
+> Task :app:extractPlaystoreDebugSupportedLocales
+> Task :app:generatePlaystoreDebugResources
+> Task :app:createPlaystoreDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksPlaystoreDebug
+> Task :app:generatePlaystoreDebugLocaleConfig
+> Task :app:processPlaystoreDebugMainManifest
+> Task :app:packagePlaystoreDebugResources
+> Task :app:mergePlaystoreDebugResources
+> Task :app:parsePlaystoreDebugLocalResources
+> Task :app:processPlaystoreDebugManifest
+> Task :app:prePlaystoreDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompilePlaystoreDebugUnitTest
+> Task :app:javaPreCompilePlaystoreDebug
+> Task :app:processPlaystoreDebugManifestForPackage
+> Task :app:processPlaystoreDebugResources
+> Task :app:compilePlaystoreDebugKotlin
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/core/AetherDelayTester.kt:152:51 Expression is unused.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/core/AetherDelayTester.kt:153:24 This is a delicate API and its use requires care. Make sure you fully read and understand documentation of the declaration that is marked as a delicate API.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/handler/ExitCheck.kt:196:26 'constructor(p0: String!, p1: String!): Locale' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/handler/ExitCheck.kt:362:54 Unnecessary safe call on a non-null receiver of type 'StoredPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/handler/ExitCheckHttp.kt:145:34 Unnecessary safe call on a non-null receiver of type 'ResponseBody'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/handler/SettingsManager.kt:501:25 'var pinSHA256: String?' is deprecated. Use pinnedCA256.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/handler/SettingsManager.kt:504:43 'var pinSHA256: String?' is deprecated. Use pinnedCA256.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/handler/SettingsManager.kt:505:21 'var pinSHA256: String?' is deprecated. Use pinnedCA256.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:111:40 Unnecessary safe call on a non-null receiver of type 'ExitPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:112:47 Unnecessary safe call on a non-null receiver of type 'ExitPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:114:35 Unnecessary safe call on a non-null receiver of type 'ExitPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:160:20 'constructor(p0: String!, p1: String!): Locale' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:340:77 Unnecessary safe call on a non-null receiver of type 'ExitPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:351:50 Unnecessary safe call on a non-null receiver of type 'ExitPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:351:91 Elvis operator (?:) always returns the left operand of non-nullable type 'String'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:356:61 Unnecessary safe call on a non-null receiver of type 'ExitPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/main/MainGroupTab.kt:33:5 'fun ScrollableTabRow(selectedTabIndex: Int, modifier: Modifier = ..., containerColor: Color = ..., contentColor: Color = ..., edgePadding: Dp = ..., indicator: ComposableFunction1<List<TabPosition>, Unit> = ..., divider: ComposableFunction0<Unit> = ..., tabs: ComposableFunction0<Unit>): Unit' is deprecated. Replaced with PrimaryScrollableTabRow and SecondaryScrollableTabRow tab variants.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/main/MainGroupTab.kt:41:37 'fun Modifier.tabIndicatorOffset(currentTabPosition: TabPosition): Modifier' is deprecated. Solely for use alongside deprecated TabRowDefaults.Indicator method. For recommended PrimaryIndicator and SecondaryIndicator methods, please use TabIndicatorScope.tabIndicatorOffset method.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/routing/RoutingSettingActivity.kt:385:43 Elvis operator (?:) always returns the left operand of non-nullable type 'Boolean'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/server/ServerCustomConfigActivity.kt:140:44 Unnecessary safe call on a non-null receiver of type 'ProfileItem'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/server/ServerCustomConfigActivity.kt:142:38 Unnecessary safe call on a non-null receiver of type 'ProfileItem'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/server/ServerCustomConfigActivity.kt:143:42 Unnecessary safe call on a non-null receiver of type 'ProfileItem'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/util/HttpUtil.kt:130:37 Unnecessary safe call on a non-null receiver of type 'ResponseBody'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/util/HttpUtil.kt:213:64 Unnecessary safe call on a non-null receiver of type 'ResponseBody'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/util/HttpUtil.kt:309:42 Elvis operator (?:) always returns the left operand of non-nullable type 'ResponseBody'.
+
+> Task :app:compilePlaystoreDebugJavaWithJavac
+> Task :app:bundlePlaystoreDebugClassesToRuntimeJar
+> Task :app:processPlaystoreDebugJavaRes
+> Task :app:bundlePlaystoreDebugClassesToCompileJar
+
+> Task :app:compilePlaystoreDebugUnitTestKotlin FAILED
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:3:12 Unresolved reference 'sun'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:20:34 Unresolved reference 'HttpServer'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:26:18 Unresolved reference 'HttpServer'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:27:16 Unresolved reference 'createContext'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:27:44 Cannot infer type for value parameter 'ex'. Specify it explicitly.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:28:32 Unresolved reference 'requestHeaders'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:29:16 Unresolved reference 'responseHeaders'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:30:16 Unresolved reference 'responseHeaders'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:31:16 Unresolved reference 'responseHeaders'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:32:16 Unresolved reference 'responseHeaders'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:34:16 Unresolved reference 'sendResponseHeaders'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:35:16 Unresolved reference 'responseBody'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:35:29 Cannot infer type for type parameter 'T'. Specify it explicitly.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:35:29 Cannot infer type for type parameter 'R'. Specify it explicitly.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:35:33 Cannot infer type for type parameter 'T'. Specify it explicitly.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:35:38 Unresolved reference 'write'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:37:16 Unresolved reference 'createContext'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:37:40 Cannot infer type for value parameter 'ex'. Specify it explicitly.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:38:16 Unresolved reference 'responseHeaders'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:39:16 Unresolved reference 'responseHeaders'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:40:16 Unresolved reference 'sendResponseHeaders'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:41:16 Unresolved reference 'close'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:43:16 Unresolved reference 'start'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:48:16 Unresolved reference 'stop'.
+e: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:51:64 Unresolved reference 'address'.
+
+[Incubating] Problems report is available at: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compilePlaystoreDebugUnitTestKotlin' (registered by plugin 'org.jetbrains.kotlin.android').
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.btapi.BuildToolsApiCompilationWork
+   > Kotlin compiler: UNRESOLVED_IMPORT
+       Kotlin compiler error
+         Unresolved reference 'sun'.
+         Location: /home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/util/HttpUtilPanelHeadersTest.kt:3
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.8.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 2m 41s
+26 actionable tasks: 26 executed
+
+---- gradle test reports ----
