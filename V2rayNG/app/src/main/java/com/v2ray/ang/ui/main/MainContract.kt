@@ -29,7 +29,9 @@ data class MainUiState(
     val locateTarget: LocateTarget? = null,
     val confirmRemove: Boolean = false,
     val doubleColumnDisplay: Boolean = false,
-    val shareQRCodeBitmap: android.graphics.Bitmap? = null
+    val shareQRCodeBitmap: android.graphics.Bitmap? = null,
+    /** What the selected subscription's panel reported (traffic, expiry, links), if anything. */
+    val selectedSubPanel: com.v2ray.ang.handler.SubscriptionPanelInfo? = null,
 )
 
 /**
@@ -37,6 +39,12 @@ data class MainUiState(
  */
 sealed interface MainAction {
     data object Initialize : MainAction
+
+    /** The app came to the foreground: refresh subscriptions that are due. */
+    data object AppForeground : MainAction
+
+    /** Open a panel-provided link (support, website) outside the app. */
+    data class OpenPanelLink(val url: String) : MainAction
     data object RefreshGroups : MainAction
     data object ToggleService : MainAction
     data object TestCurrentServer : MainAction

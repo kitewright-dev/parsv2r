@@ -21,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -136,6 +137,8 @@ fun SubEditScreen(
     var overridePort by rememberSaveable { mutableStateOf(initial.overridePort?.toString() ?: "") }
     var enabled by rememberSaveable { mutableStateOf(initial.enabled) }
     var autoUpdate by rememberSaveable { mutableStateOf(initial.autoUpdate) }
+    var followPanelInterval by rememberSaveable { mutableStateOf(initial.followPanelInterval) }
+    val panelIntervalHours = initial.panelInfo?.updateIntervalHours
     var updateInterval by rememberSaveable { mutableStateOf(initial.updateInterval.toString()) }
     var isUpdateIntervalError by rememberSaveable { mutableStateOf(false) }
     var allowInsecureUrl by rememberSaveable { mutableStateOf(initial.allowInsecureUrl) }
@@ -154,7 +157,10 @@ fun SubEditScreen(
             return null
         }
         val subItem = MmkvManager.decodeSubscription(editSubId) ?: SubscriptionItem()
+        // A name the user typed is theirs; only a made-up import name gives way to the panel's.
+        subItem.autoTitle = subItem.autoTitle && remarks == initial.remarks
         subItem.remarks = remarks
+        subItem.followPanelInterval = followPanelInterval
         subItem.url = url
         subItem.userAgent = userAgent
         subItem.requestHeaders = requestHeaders
@@ -250,6 +256,17 @@ fun SubEditScreen(
                 title = stringResource(R.string.sub_setting_enable),
                 checked = enabled,
                 onCheckedChange = { enabled = it }
+            )
+
+            SettingsSwitchItem(
+                title = stringResource(R.string.sub_follow_panel_interval),
+                summary = if (panelIntervalHours != null) {
+                    pluralStringResource(R.plurals.sub_follow_panel_interval_hours, panelIntervalHours, panelIntervalHours)
+                } else {
+                    stringResource(R.string.sub_follow_panel_interval_none)
+                },
+                checked = followPanelInterval,
+                onCheckedChange = { followPanelInterval = it }
             )
 
             SettingsSwitchItem(

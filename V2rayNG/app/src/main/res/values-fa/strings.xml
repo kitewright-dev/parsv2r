@@ -665,4 +665,41 @@
     <string name="xdrive_error_dav_username">نام کاربری WebDAV را وارد کنید</string>
     <string name="xdrive_error_template">قالب باید یک شیء JSON با put، get، delete و list باشد و داخل list یک namesRegex داشته باشد</string>
 
+    <!-- Subscription panel info (pars14) -->
+    <string name="sub_panel_used_of">%1$s از %2$s مصرف شده</string>
+    <string name="sub_panel_used_unlimited">%1$s مصرف شده · نامحدود</string>
+    <string name="sub_panel_left">%1$s مانده</string>
+    <plurals name="sub_panel_days_left">
+        <item quantity="one">%1$d روز مانده</item>
+        <item quantity="other">%1$d روز مانده</item>
+    </plurals>
+    <string name="sub_panel_ends_on">پایان %1$s</string>
+    <string name="sub_panel_expired">منقضی شده</string>
+    <string name="sub_panel_exhausted">حجم تمام شده</string>
+    <string name="sub_panel_no_expiry">بدون تاریخ انقضا</string>
+    <string name="sub_panel_support">پشتیبانی</string>
+    <string name="sub_panel_website">سایت</string>
+    <string name="sub_panel_usage_description">حجم مصرف‌شده</string>
+    <string name="sub_follow_panel_interval">به‌روزرسانی طبق زمان‌بندی پنل</string>
+    <plurals name="sub_follow_panel_interval_hours">
+        <item quantity="one">پنل خواسته هر یک ساعت به‌روز شود</item>
+        <item quantity="other">پنل خواسته هر %1$d ساعت به‌روز شود</item>
+    </plurals>
+    <string name="sub_follow_panel_interval_none">اگر پنل زمان‌بندی بفرستد از همان استفاده می‌شود و فاصله‌ی پایین نادیده گرفته می‌شود</string>
+    <string name="title_pref_sub_update_on_open">به‌روزرسانی اشتراک‌ها با باز شدن برنامه</string>
+    <string name="summary_pref_sub_update_on_open">سرور و پورت‌هایی که پنل عوض کرده خودکار گرفته می‌شوند و دیگر لازم نیست لینک را پاک کنید و دوباره بزنید</string>
+    <string name="title_pref_sub_reminder">یادآوری اشتراک</string>
+    <string name="summary_pref_sub_reminder">۳ روز قبل از تمام شدن اشتراک، یا وقتی ۹۰٪ حجمش مصرف شد، خبرم کن</string>
+    <string name="notification_channel_subscription_reminders">یادآوری اشتراک</string>
+    <string name="sub_reminder_title">اشتراک</string>
+    <string name="sub_reminder_expired">اشتراک «%1$s» منقضی شده. برای وصل ماندن تمدیدش کنید.</string>
+    <string name="sub_reminder_exhausted">حجم اشتراک «%1$s» تمام شده.</string>
+    <plurals name="sub_reminder_expiring">
+        <item quantity="one">اشتراک «%1$s» تا %2$d روز دیگر تمام می‌شود.</item>
+        <item quantity="other">اشتراک «%1$s» تا %2$d روز دیگر تمام می‌شود.</item>
+    </plurals>
+    <string name="sub_reminder_low">اشتراک «%1$s»: %2$s از %3$s مانده.</string>
+    <string name="toast_happ_link_added">اشتراک اضافه شد و الان به‌روز می‌شود</string>
+    <string name="toast_happ_link_unsupported">این لینک Happ اینجا باز نمی‌شود. لینک‌های رمزشده پشتیبانی نمی‌شوند؛ لینک ساده‌ی اشتراک را بگیرید.</string>
+
 </resources>

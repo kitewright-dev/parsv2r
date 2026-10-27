@@ -667,4 +667,41 @@
     <string name="xdrive_error_dav_username">Enter the WebDAV username</string>
     <string name="xdrive_error_template">The template has to be a JSON object with put, get, delete and list, and a namesRegex in list</string>
 
+    <!-- Subscription panel info (pars14) -->
+    <string name="sub_panel_used_of">%1$s of %2$s used</string>
+    <string name="sub_panel_used_unlimited">%1$s used · unlimited</string>
+    <string name="sub_panel_left">%1$s left</string>
+    <plurals name="sub_panel_days_left">
+        <item quantity="one">%1$d day left</item>
+        <item quantity="other">%1$d days left</item>
+    </plurals>
+    <string name="sub_panel_ends_on">ends %1$s</string>
+    <string name="sub_panel_expired">Expired</string>
+    <string name="sub_panel_exhausted">Traffic used up</string>
+    <string name="sub_panel_no_expiry">No expiry date</string>
+    <string name="sub_panel_support">Support</string>
+    <string name="sub_panel_website">Website</string>
+    <string name="sub_panel_usage_description">Traffic used</string>
+    <string name="sub_follow_panel_interval">Follow the panel\'s update schedule</string>
+    <plurals name="sub_follow_panel_interval_hours">
+        <item quantity="one">The panel asks for an update every hour</item>
+        <item quantity="other">The panel asks for an update every %1$d hours</item>
+    </plurals>
+    <string name="sub_follow_panel_interval_none">Used when the panel sends a schedule; it overrides the interval below</string>
+    <string name="title_pref_sub_update_on_open">Update subscriptions when the app opens</string>
+    <string name="summary_pref_sub_update_on_open">Picks up servers and ports the panel changed, so you don\'t have to delete and re-add the link</string>
+    <string name="title_pref_sub_reminder">Subscription reminders</string>
+    <string name="summary_pref_sub_reminder" formatted="false">Notify me 3 days before a subscription ends, or when 90% of its traffic is used</string>
+    <string name="notification_channel_subscription_reminders">Subscription reminders</string>
+    <string name="sub_reminder_title">Subscription</string>
+    <string name="sub_reminder_expired">\"%1$s\" has expired. Renew it to keep connecting.</string>
+    <string name="sub_reminder_exhausted">\"%1$s\" has used all its traffic.</string>
+    <plurals name="sub_reminder_expiring">
+        <item quantity="one">\"%1$s\" ends in %2$d day.</item>
+        <item quantity="other">\"%1$s\" ends in %2$d days.</item>
+    </plurals>
+    <string name="sub_reminder_low">\"%1$s\": %2$s left of %3$s.</string>
+    <string name="toast_happ_link_added">Subscription added, updating it now</string>
+    <string name="toast_happ_link_unsupported">This Happ link can\'t be opened here. Encrypted links aren\'t supported; ask for the plain subscription link.</string>
+
 </resources>

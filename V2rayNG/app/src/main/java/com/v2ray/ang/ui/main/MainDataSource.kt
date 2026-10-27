@@ -64,5 +64,8 @@ interface MainDataSource : Closeable {
     fun testCurrentServerRealPing(requestId: String)
 
     fun syncSubscriptions()
+
+    /** Whether subscriptions are refreshed when the app comes to the foreground. */
+    fun isSubUpdateOnOpenEnabled(): Boolean
     fun initAssets()
 }

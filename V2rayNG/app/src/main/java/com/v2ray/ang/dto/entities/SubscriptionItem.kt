@@ -1,5 +1,7 @@
 package com.v2ray.ang.dto.entities
 
+import com.v2ray.ang.handler.SubscriptionPanelInfo
+
 data class SubscriptionItem(
     var remarks: String = "",
     var url: String = "",
@@ -16,5 +18,14 @@ data class SubscriptionItem(
     var requestHeaders: String? = null,
     var overrideAddress: String? = null,
     var overridePort: Int? = null,
+    /** What the panel last reported about this subscription: traffic, expiry, name, links. */
+    var panelInfo: SubscriptionPanelInfo? = null,
+    /** Auto-update on the interval the panel asks for, when it asks for one. */
+    var followPanelInterval: Boolean = true,
+    /** The name was made up at import, so the panel's own title may replace it. */
+    var autoTitle: Boolean = false,
+    /** State and local day of the last expiry/traffic reminder. */
+    var reminderState: String? = null,
+    var reminderDay: Long = -1,
 )
 

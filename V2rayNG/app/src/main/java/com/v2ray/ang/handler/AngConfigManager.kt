@@ -7,6 +7,7 @@ import com.v2ray.ang.AppConfig
 import com.v2ray.ang.core.CoreConfigManager
 import com.v2ray.ang.dto.SubscriptionUpdateResult
 import com.v2ray.ang.dto.UrlContentRequest
+import com.v2ray.ang.dto.UrlResponse
 import com.v2ray.ang.dto.entities.ProfileItem
 import com.v2ray.ang.dto.entities.SubscriptionCache
 import com.v2ray.ang.dto.entities.SubscriptionItem
@@ -421,6 +422,10 @@ object AngConfigManager {
                 return null
             }
 
+            // Happ-style names carry options after a "?" (e.g. "DE?serverDescription=…").
+            val (name, serverDescription) = SubscriptionPanel.splitName(config.remarks)
+            config.remarks = name
+
             // Apply filter
             if (subItem?.filter.isNotNullEmpty() && config.remarks.isNotNullEmpty()) {
                 val matched = Regex(pattern = subItem?.filter.orEmpty())
@@ -431,7 +436,7 @@ object AngConfigManager {
             applySubscriptionOverrides(config, subItem)
 
             config.subscriptionId = subid
-            config.description = generateDescription(config)
+            config.description = serverDescription ?: generateDescription(config)
 
             return config
         } catch (e: Exception) {
@@ -506,36 +511,23 @@ object AngConfigManager {
             val proxyUsername = SettingsManager.getSocksUsername()
             val proxyPassword = SettingsManager.getSocksPassword()
 
-            var configText = try {
-                val httpPort = SettingsManager.getHttpPort()
-                HttpUtil.getUrlContentWithUserAgent(
-                    UrlContentRequest(
-                        url = url,
-                        userAgent = userAgent,
-                        requestHeaders = requestHeaders,
-                        timeout = 15000,
-                        httpPort = httpPort,
-                        proxyUsername = proxyUsername,
-                        proxyPassword = proxyPassword
-                    )
+            val response = fetchSubscription(
+                url = url,
+                userAgent = userAgent,
+                requestHeaders = requestHeaders,
+                proxyUsername = proxyUsername,
+                proxyPassword = proxyPassword,
+            )
+            val configText = response?.body.orEmpty()
+            val panelInfo = response?.let {
+                SubscriptionPanel.parse(
+                    headers = it.headers,
+                    bodies = listOf(configText, runCatching { Utils.decode(configText) }.getOrNull()),
+                    now = System.currentTimeMillis(),
                 )
-            } catch (e: Exception) {
-                LogUtil.e(AppConfig.ANG_PACKAGE, "Update subscription: proxy not ready or other error", e)
-                ""
             }
-            if (configText.isEmpty()) {
-                configText = try {
-                    HttpUtil.getUrlContentWithUserAgent(
-                        UrlContentRequest(
-                            url = url,
-                            userAgent = userAgent,
-                            requestHeaders = requestHeaders
-                        )
-                    )
-                } catch (e: Exception) {
-                    LogUtil.e(AppConfig.TAG, "Update subscription: Failed to get URL content with user agent", e)
-                    ""
-                }
+            if (panelInfo != null) {
+                applyPanelInfo(it.guid, it.subscription, panelInfo)
             }
             if (configText.isEmpty()) {
                 return SubscriptionUpdateResult(failureCount = 1)
@@ -558,6 +550,75 @@ object AngConfigManager {
             LogUtil.e(AppConfig.TAG, "Failed to update config via subscription", e)
             return SubscriptionUpdateResult(failureCount = 1)
         }
+    }
+
+    /**
+     * Fetches a subscription, first through the app's own local proxy (so it works while
+     * connected) and then directly. Returns null when both attempts fail or come back empty.
+     */
+    private fun fetchSubscription(
+        url: String,
+        userAgent: String?,
+        requestHeaders: String?,
+        proxyUsername: String?,
+        proxyPassword: String?,
+    ): UrlResponse? {
+        val viaProxy = try {
+            HttpUtil.getUrlResponseWithUserAgent(
+                UrlContentRequest(
+                    url = url,
+                    userAgent = userAgent,
+                    requestHeaders = requestHeaders,
+                    timeout = 15000,
+                    httpPort = SettingsManager.getHttpPort(),
+                    proxyUsername = proxyUsername,
+                    proxyPassword = proxyPassword
+                )
+            )
+        } catch (e: Exception) {
+            LogUtil.e(AppConfig.ANG_PACKAGE, "Update subscription: proxy not ready or other error", e)
+            null
+        }
+        if (viaProxy != null && viaProxy.body.isNotEmpty()) return viaProxy
+
+        val direct = try {
+            HttpUtil.getUrlResponseWithUserAgent(
+                UrlContentRequest(
+                    url = url,
+                    userAgent = userAgent,
+                    requestHeaders = requestHeaders
+                )
+            )
+        } catch (e: Exception) {
+            LogUtil.e(AppConfig.TAG, "Update subscription: Failed to get URL content with user agent", e)
+            null
+        }
+        return direct?.takeIf { it.body.isNotEmpty() || it.headers.isNotEmpty() } ?: viaProxy
+    }
+
+    /**
+     * Stores what the panel reported, takes the panel's name for a subscription whose name was
+     * made up at import, and reschedules auto-update when the panel's interval changed it.
+     */
+    private fun applyPanelInfo(subId: String, sub: SubscriptionItem, info: SubscriptionPanelInfo) {
+        val before = SubscriptionUpdater.intervalMinutes(sub)
+        sub.panelInfo = info
+        if (sub.autoTitle && !info.title.isNullOrBlank()) {
+            sub.remarks = info.title
+        }
+        MmkvManager.encodeSubscription(subId, sub)
+        if (SubscriptionUpdater.intervalMinutes(sub) != before) {
+            try {
+                SubscriptionUpdater.syncOne(subId = subId)
+            } catch (e: Exception) {
+                LogUtil.e(AppConfig.TAG, "Failed to reschedule subscription $subId after a panel interval change", e)
+            }
+        }
+        LogUtil.i(
+            AppConfig.TAG,
+            "Panel info for ${sub.remarks}: usage=${info.hasUsage} interval=${info.updateIntervalHours}h " +
+                    "title=${info.title != null} announce=${info.announce != null}"
+        )
     }
 
     /**
@@ -615,6 +676,23 @@ object AngConfigManager {
     }
 
     /**
+     * Adds [url] as a subscription without fetching it; the main screen fetches it when it
+     * comes to the foreground. Returns false when the link is invalid.
+     *
+     * @return true if it was added or already present
+     */
+    fun addSubscriptionUrl(url: String): Boolean {
+        if (!Utils.isValidUrl(url)) return false
+        return try {
+            importUrlAsSubscription(url)
+            true
+        } catch (e: Exception) {
+            LogUtil.e(AppConfig.TAG, "Failed to add subscription link", e)
+            false
+        }
+    }
+
+    /**
      * Imports a URL as a subscription.
      *
      * @param url The URL.
@@ -629,7 +707,9 @@ object AngConfigManager {
         }
         val uri = URI(Utils.fixIllegalUrl(url))
         val subItem = SubscriptionItem()
-        subItem.remarks = uri.fragment ?: "import sub"
+        val linkName = uri.fragment?.let { SubscriptionPanel.splitName(it).first }?.trim().orEmpty()
+        subItem.remarks = linkName.ifEmpty { "import sub" }
+        subItem.autoTitle = linkName.isEmpty()
         subItem.url = url
         MmkvManager.encodeSubscription("", subItem)
         return 1

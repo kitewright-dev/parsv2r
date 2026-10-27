@@ -31,6 +31,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.v2ray.ang.dto.entities.ProfileItem
 import com.v2ray.ang.ui.compose.LocalDarkTheme
 import com.v2ray.ang.ui.compose.QRCodeDialog
+import com.v2ray.ang.ui.compose.SubscriptionPanelStrip
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 
@@ -215,6 +216,13 @@ fun MainScreen(
                                     )
                                 }
                             }
+                        )
+                    }
+
+                    uiState.selectedSubPanel?.let { panel ->
+                        SubscriptionPanelStrip(
+                            info = panel,
+                            onOpenLink = { url -> onAction(MainAction.OpenPanelLink(url)) },
                         )
                     }
 

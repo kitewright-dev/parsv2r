@@ -232,6 +232,9 @@ class MainRepository(
         SubscriptionUpdater.sync(app)
     }
 
+    override fun isSubUpdateOnOpenEnabled(): Boolean =
+        MmkvManager.decodeSettingsBool(AppConfig.PREF_SUB_UPDATE_ON_OPEN, true)
+
     override fun initAssets() {
         SettingsManager.initAssets(app, app.assets)
     }

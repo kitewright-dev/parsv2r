@@ -10,6 +10,7 @@ import com.v2ray.ang.R
 import com.v2ray.ang.extension.toast
 import com.v2ray.ang.extension.toastError
 import com.v2ray.ang.handler.AngConfigManager
+import com.v2ray.ang.handler.SubscriptionPanel
 import com.v2ray.ang.ui.base.BaseComponentActivity
 import com.v2ray.ang.ui.main.MainActivity
 import com.v2ray.ang.util.LogUtil
@@ -30,6 +31,8 @@ class UrlSchemeActivity : BaseComponentActivity() {
                             parseUri(it, null)
                         }
                     }
+                } else if (action == Intent.ACTION_VIEW && data?.scheme.equals("happ", ignoreCase = true)) {
+                    addHappSubscription(dataString)
                 } else if (action == Intent.ACTION_VIEW) {
                     when (data?.host) {
                         "install-config" -> {
@@ -60,6 +63,25 @@ class UrlSchemeActivity : BaseComponentActivity() {
 
     @Composable
     override fun ScreenContent() {
+    }
+
+    /**
+     * `happ://add/<subscription link>`, the link panels such as Remnawave put on their
+     * "Add to Happ" button. The subscription is stored here and fetched by the main screen,
+     * which opens next. Encrypted `happ://crypt…` links are not supported.
+     */
+    private fun addHappSubscription(link: String?) {
+        val url = SubscriptionPanel.happAddTarget(link)
+        if (url == null) {
+            LogUtil.w(AppConfig.TAG, "Unsupported happ link")
+            toastError(R.string.toast_happ_link_unsupported)
+            return
+        }
+        if (AngConfigManager.addSubscriptionUrl(url)) {
+            toast(R.string.toast_happ_link_added)
+        } else {
+            toastError(R.string.toast_failure)
+        }
     }
 
     private fun parseUri(uriString: String?, fragment: String?) {

@@ -18,6 +18,8 @@ import com.v2ray.ang.extension.delay
 import com.v2ray.ang.extension.isComplexType
 import com.v2ray.ang.extension.matchesPattern
 import com.v2ray.ang.extension.moveItem
+import com.v2ray.ang.handler.SubscriptionPanel
+import com.v2ray.ang.handler.SubscriptionPanelInfo
 import com.v2ray.ang.ui.base.BaseViewModel
 import com.v2ray.ang.util.LogUtil
 import kotlinx.coroutines.CancellationException
@@ -298,6 +300,7 @@ class MainViewModel(
     fun onAction(action: MainAction) {
         when (action) {
             MainAction.Initialize -> initialize()
+            MainAction.AppForeground -> refreshSubscriptionsOnOpen()
             MainAction.RefreshGroups -> setupGroupTab(forceRefresh = true)
             MainAction.TestAllServers -> testAllRealPing(true)
             MainAction.TestRealAllServers -> testAllRealPing()
@@ -334,7 +337,8 @@ class MainViewModel(
             MainAction.LocateSelectedServer,
             is MainAction.EditServer,
             is MainAction.ShareClipboard,
-            is MainAction.ShareFullContent -> {
+            is MainAction.ShareFullContent,
+            is MainAction.OpenPanelLink -> {
                 // Handled by Activity via its onAction lambda
             }
         }
@@ -355,6 +359,85 @@ class MainViewModel(
             }
         }
     }
+
+    // ---------- Subscription refresh on open ----------
+    /** When each subscription was last tried by the refresh on open, by subscription id. */
+    private val openRefreshAttempts = ConcurrentHashMap<String, Long>()
+    private var openRefreshJob: Job? = null
+
+    /**
+     * Refreshes enabled subscriptions not updated in the last few minutes, the way Happ does
+     * on launch, so a panel that rotated its servers or ports is picked up without the user
+     * having to delete and re-add the link. Silent apart from the top-bar progress.
+     */
+    private fun refreshSubscriptionsOnOpen() {
+        if (openRefreshJob?.isActive == true) return
+        val now = System.currentTimeMillis()
+
+        openRefreshJob = viewModelScope.launch {
+            val enabled = withContext(ioDispatcher) { dataSource.isSubUpdateOnOpenEnabled() }
+            val due = withContext(ioDispatcher) {
+                dataSource.getSubscriptions().filter {
+                    SubscriptionPanel.dueOnOpen(
+                        enabled = it.subscription.enabled,
+                        url = it.subscription.url,
+                        lastUpdated = it.subscription.lastUpdated,
+                        nowMillis = now,
+                        minAgeMillis = AppConfig.SUB_UPDATE_ON_OPEN_MIN_AGE_MILLIS,
+                    )
+                }
+            }
+            // A subscription that was never fetched (just added, e.g. from a happ:// link) is
+            // always fetched; the rest only when the setting is on and not retried too often.
+            val toFetch = due.filter { sub ->
+                SubscriptionPanel.fetchOnOpen(
+                    lastUpdated = sub.subscription.lastUpdated,
+                    settingOn = enabled,
+                    lastTry = openRefreshAttempts[sub.guid],
+                    nowMillis = now,
+                    retryMillis = OPEN_REFRESH_RETRY_MILLIS,
+                )
+            }
+            if (toFetch.isEmpty()) return@launch
+            toFetch.forEach { openRefreshAttempts[it.guid] = now }
+            // Show a just-added subscription's tab straight away, before its first fetch ends.
+            if (toFetch.any { it.subscription.lastUpdated <= 0L }) setupGroupTab()
+            _isLoading.value = true
+            try {
+                var configsChanged = false
+                withContext(ioDispatcher) {
+                    toFetch.forEach { sub ->
+                        ensureActive()
+                        // Read it again: the list above may be a few seconds old.
+                        val fresh = dataSource.getSubscriptionItem(sub.guid) ?: return@forEach
+                        val result = dataSource.updateConfigViaSub(SubscriptionCache(sub.guid, fresh))
+                        if (result.configCount > 0) configsChanged = true
+                        LogUtil.i(
+                            AppConfig.TAG,
+                            "Open refresh ${sub.guid}: configs=${result.configCount} ok=${result.successCount} failed=${result.failureCount}"
+                        )
+                    }
+                }
+                if (configsChanged) {
+                    setupGroupTab(forceRefresh = true)
+                    refreshSelectedGuid()
+                } else {
+                    // Names and panel info may still have changed.
+                    setupGroupTab()
+                }
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (e: Exception) {
+                LogUtil.e(AppConfig.TAG, "Subscription refresh on open failed", e)
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+
+    private fun selectedPanelInfo(groupId: String): SubscriptionPanelInfo? =
+        if (groupId.isEmpty()) null
+        else dataSource.getSubscriptionItem(groupId)?.panelInfo?.takeUnless { it.isEmpty }
 
     fun refreshUiSettings() {
         _uiState.update {
@@ -486,11 +569,13 @@ class MainViewModel(
                 groupServerFlows.keys.removeAll { it !in validIds }
                 groupLoadMutexes.keys.removeAll { it !in validIds }
 
+                val panel = selectedPanelInfo(selectedGroup)
                 _uiState.update {
                     it.copy(
                         groups = groups,
                         selectedGroupId = selectedGroup,
                         selectedGuid = dataSource.getSelectServer(),
+                        selectedSubPanel = panel,
                     )
                 }
                 groups.forEach { mutableServerGroupState(it.id) }
@@ -745,6 +830,8 @@ class MainViewModel(
         selectedGroupLoadJob?.cancel()
         selectedGroupLoadJob = viewModelScope.launch(ioDispatcher) {
             try {
+                val panel = selectedPanelInfo(id)
+                _uiState.update { if (it.selectedGroupId == id) it.copy(selectedSubPanel = panel) else it }
                 updateGroupUi(id, loadGroup(id))
             } catch (cancelled: CancellationException) {
                 throw cancelled
@@ -970,6 +1057,9 @@ class MainViewModel(
 
     companion object {
         private const val TEST_RESULT_FLUSH_INTERVAL_MS = 500L
+
+        /** A subscription the refresh on open just tried (or failed on) waits this long. */
+        private const val OPEN_REFRESH_RETRY_MILLIS = 2 * 60 * 1000L
 
         /**
          * The status after a running or stopped signal. A test text survives a repeated signal

@@ -131,6 +131,8 @@ fun SettingsScreen(
 
     var fragment by rememberMmkvBool(AppConfig.PREF_FRAGMENT_ENABLED, false)
     var revive by rememberMmkvBool(AppConfig.PREF_REVIVE_ENABLED, false)
+    var subUpdateOnOpen by rememberMmkvBool(AppConfig.PREF_SUB_UPDATE_ON_OPEN, true)
+    var subReminder by rememberMmkvBool(AppConfig.PREF_SUB_REMINDER_ENABLED, true)
     var fragmentPackets by rememberMmkvString(AppConfig.PREF_FRAGMENT_PACKETS, "tlshello")
     var fragmentLength by rememberMmkvString(AppConfig.PREF_FRAGMENT_LENGTH, "50-100")
     var fragmentInterval by rememberMmkvString(AppConfig.PREF_FRAGMENT_INTERVAL, "10-20")
@@ -249,6 +251,18 @@ fun SettingsScreen(
                 summary = stringResource(R.string.summary_pref_revive_enabled),
                 checked = revive,
                 onCheckedChange = { revive = it }
+            )
+            SettingsSwitchItem(
+                title = stringResource(R.string.title_pref_sub_update_on_open),
+                summary = stringResource(R.string.summary_pref_sub_update_on_open),
+                checked = subUpdateOnOpen,
+                onCheckedChange = { subUpdateOnOpen = it }
+            )
+            SettingsSwitchItem(
+                title = stringResource(R.string.title_pref_sub_reminder),
+                summary = stringResource(R.string.summary_pref_sub_reminder),
+                checked = subReminder,
+                onCheckedChange = { subReminder = it }
             )
 
             CollapsiblePreferenceGroupHeader(

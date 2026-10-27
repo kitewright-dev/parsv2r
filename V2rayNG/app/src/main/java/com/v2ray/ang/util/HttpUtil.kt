@@ -4,6 +4,7 @@ import com.v2ray.ang.AppConfig
 import com.v2ray.ang.AppConfig.LOOPBACK
 import com.v2ray.ang.BuildConfig
 import com.v2ray.ang.dto.UrlContentRequest
+import com.v2ray.ang.dto.UrlResponse
 import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -17,6 +18,7 @@ import java.net.MalformedURLException
 import java.net.Proxy
 import java.net.URI
 import java.net.URL
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 object HttpUtil {
@@ -143,7 +145,18 @@ object HttpUtil {
      * @throws IOException If an I/O error occurs.
      */
     @Throws(IOException::class)
-    fun getUrlContentWithUserAgent(request: UrlContentRequest): String {
+    fun getUrlContentWithUserAgent(request: UrlContentRequest): String =
+        getUrlResponseWithUserAgent(request).body
+
+    /**
+     * Like [getUrlContentWithUserAgent], but also returns the final response's headers, which
+     * subscription panels use to report traffic, expiry and their update interval.
+     * Header names are lower-cased; when a header repeats, the last value is kept.
+     *
+     * @throws IOException If an I/O error occurs.
+     */
+    @Throws(IOException::class)
+    fun getUrlResponseWithUserAgent(request: UrlContentRequest): UrlResponse {
         var currentUrl = request.url
         var redirects = 0
         val maxRedirects = 3
@@ -193,7 +206,11 @@ object HttpUtil {
                     }
 
                     response.isSuccessful -> {
-                        return response.body?.string() ?: ""
+                        val headers = linkedMapOf<String, String>()
+                        response.headers.forEach { (name, value) ->
+                            headers[name.lowercase(Locale.ROOT)] = value
+                        }
+                        return UrlResponse(body = response.body?.string() ?: "", headers = headers)
                     }
 
                     else -> {

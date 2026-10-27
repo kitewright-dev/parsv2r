@@ -13,6 +13,7 @@ import androidx.work.workDataOf
 import com.v2ray.ang.AngApplication
 import com.v2ray.ang.AppConfig
 import com.v2ray.ang.dto.SubscriptionUpdateMessage
+import com.v2ray.ang.dto.entities.SubscriptionItem
 import com.v2ray.ang.helper.MessageHelper
 import com.v2ray.ang.util.LogUtil
 import java.util.concurrent.TimeUnit
@@ -43,7 +44,7 @@ object SubscriptionUpdater {
             }
 
         MmkvManager.decodeSubscriptions()
-            .filter { it.subscription.autoUpdate && it.subscription.url.isNotEmpty() }
+            .filter { intervalMinutes(it.subscription) != null && it.subscription.url.isNotEmpty() }
             .forEach { sub ->
                 scheduleOne(
                     context = context,
@@ -89,6 +90,19 @@ object SubscriptionUpdater {
         syncOne(context, subId)
     }
 
+    /**
+     * The auto-update interval in minutes for [subItem], or null when it should not auto-update.
+     * A panel that sends Profile-Update-Interval schedules it unless the user turned that off.
+     */
+    fun intervalMinutes(subItem: SubscriptionItem): Long? =
+        SubscriptionPanel.scheduleMinutes(
+            autoUpdate = subItem.autoUpdate,
+            userIntervalMinutes = subItem.updateInterval,
+            followPanel = subItem.followPanelInterval,
+            panelIntervalHours = subItem.panelInfo?.updateIntervalHours,
+            minMinutes = AppConfig.SUBSCRIPTION_MIN_INTERVAL_MINUTES,
+        )
+
     // -------------------------------------------------------------------------
     // Internal scheduling logic
     // -------------------------------------------------------------------------
@@ -102,7 +116,8 @@ object SubscriptionUpdater {
     ) {
         val subItem = MmkvManager.decodeSubscription(subId) ?: return
         val rw = RemoteWorkManager.getInstance(context)
-        if (!subItem.autoUpdate) {
+        val intervalMinutes = intervalMinutes(subItem)
+        if (intervalMinutes == null) {
             cancelOne(context, subId)
             LogUtil.d(AppConfig.TAG, "SubscriptionUpdater: cancelled task for ${subItem.remarks}")
             return
@@ -112,11 +127,6 @@ object SubscriptionUpdater {
             LogUtil.i(AppConfig.TAG, "SubscriptionUpdater: url isEmpty for ${subItem.remarks}, skip")
             return
         }
-
-        val intervalMinutes = maxOf(
-            AppConfig.SUBSCRIPTION_MIN_INTERVAL_MINUTES,
-            subItem.updateInterval
-        )
 
         // Base initial delay on the last successful update time persisted in subscription.
         val lastUpdated = subItem.lastUpdated

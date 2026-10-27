@@ -52,6 +52,15 @@ object AppConfig {
     const val PREF_OBSERVATORY_LEAST_LOAD_TIMEOUT = "pref_observatory_least_load_timeout"
     const val SUBSCRIPTION_UPDATE_TASK_NAME = "subscription_updater"
     const val SUBSCRIPTION_MIN_INTERVAL_MINUTES = 15L
+
+    /** Refresh subscriptions when the app opens (Happ does the same). */
+    const val PREF_SUB_UPDATE_ON_OPEN = "pref_sub_update_on_open"
+
+    /** Notify when a subscription is about to expire or run out of traffic. */
+    const val PREF_SUB_REMINDER_ENABLED = "pref_sub_reminder_enabled"
+
+    /** A subscription updated less than this long ago is not refreshed again on open. */
+    const val SUB_UPDATE_ON_OPEN_MIN_AGE_MILLIS = 5 * 60 * 1000L
     const val PREF_SPEED_ENABLED = "pref_speed_enabled"
     const val PREF_CONFIRM_REMOVE = "pref_confirm_remove"
     const val PREF_DOUBLE_COLUMN_DISPLAY = "pref_double_column_display"
