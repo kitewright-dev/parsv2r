@@ -1,0 +1,820 @@
+job:    fork
+commit: a5f7ee9721ef295543e18b1375ce073068f7039f
+run:    https://github.com/kitewright-dev/parsv2r/actions/runs/40539358143
+when:   2026-10-27T16:20:27Z
+
+---- last 400 lines ----
+Downloading https://services.gradle.org/distributions/gradle-9.8.0-bin.zip
+..............10%..............20%...............30%..............40%...............50%..............60%...............70%..............80%...............90%..............100%
+
+Welcome to Gradle 9.8.0!
+
+Here are the highlights of this release:
+ - Java 27 support
+ - Maven mirror settings reuse
+ - Linked problem locations in build output
+
+For more details see https://docs.gradle.org/9.8.0/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+> Configure project :app
+WARNING: The option setting 'android.usesSdkInManifest.disallowed=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.sdk.defaultTargetSdkToCompileSdkIfUnset=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.enableAppCompileTimeRClass=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.builtInKotlin=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.newDsl=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.r8.optimizedResourceShrinking=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.defaults.buildfeatures.resvalues=true' is deprecated.
+The current default is 'false'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: API 'applicationVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling applicationVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+WARNING: API 'testVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling testVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+WARNING: API 'unitTestVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling unitTestVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/build.gradle.kts:8:1: 'fun Project.android(configure: Action<BaseAppModuleExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.ApplicationExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/build.gradle.kts:21:30: 'val properties: (Mutable)Map<String, out Any?>' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/build.gradle.kts:68:21: 'fun srcDirs(vararg srcDirs: Any): Any' is deprecated. Use `directories` mutable set instead.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+Add android.sync.suppressAgpWarnings=LIBRARY_CONSTRAINTS_SHOULD_BE_DISABLED to the gradle.properties file to suppress this warning.
+w: ⚠️ Deprecated 'org.jetbrains.kotlin.android' plugin usage
+The 'org.jetbrains.kotlin.android' plugin in project ':app' is no longer required for Kotlin support since AGP 9.0.
+Solution: Remove both `android.builtInKotlin=true` and `android.newDsl=false` from `gradle.properties`, then migrate to built-in Kotlin.
+See https://kotl.in/gradle/agp-built-in-kotlin for more details.
+
+
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :app:prePlaystoreDebugBuild UP-TO-DATE
+> Task :app:generatePlaystoreDebugBuildConfig
+> Task :app:checkPlaystoreDebugAarMetadata
+> Task :app:generatePlaystoreDebugResValues
+> Task :app:mapPlaystoreDebugSourceSetPaths
+> Task :app:processPlaystoreDebugNavigationResources
+> Task :app:compilePlaystoreDebugNavigationResources
+> Task :app:extractPlaystoreDebugSupportedLocales
+> Task :app:generatePlaystoreDebugResources
+> Task :app:createPlaystoreDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksPlaystoreDebug
+> Task :app:generatePlaystoreDebugLocaleConfig
+> Task :app:processPlaystoreDebugMainManifest
+> Task :app:mergePlaystoreDebugResources
+> Task :app:packagePlaystoreDebugResources
+> Task :app:parsePlaystoreDebugLocalResources
+> Task :app:processPlaystoreDebugManifest
+> Task :app:prePlaystoreDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompilePlaystoreDebug
+> Task :app:processPlaystoreDebugManifestForPackage
+> Task :app:javaPreCompilePlaystoreDebugUnitTest
+> Task :app:processPlaystoreDebugResources
+> Task :app:compilePlaystoreDebugKotlin
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/core/AetherDelayTester.kt:152:51 Expression is unused.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/core/AetherDelayTester.kt:153:24 This is a delicate API and its use requires care. Make sure you fully read and understand documentation of the declaration that is marked as a delicate API.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/handler/ExitCheck.kt:196:26 'constructor(p0: String!, p1: String!): Locale' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/handler/ExitCheck.kt:362:54 Unnecessary safe call on a non-null receiver of type 'StoredPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/handler/ExitCheckHttp.kt:145:34 Unnecessary safe call on a non-null receiver of type 'ResponseBody'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/handler/SettingsManager.kt:501:25 'var pinSHA256: String?' is deprecated. Use pinnedCA256.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/handler/SettingsManager.kt:504:43 'var pinSHA256: String?' is deprecated. Use pinnedCA256.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/handler/SettingsManager.kt:505:21 'var pinSHA256: String?' is deprecated. Use pinnedCA256.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:111:40 Unnecessary safe call on a non-null receiver of type 'ExitPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:112:47 Unnecessary safe call on a non-null receiver of type 'ExitPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:114:35 Unnecessary safe call on a non-null receiver of type 'ExitPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:160:20 'constructor(p0: String!, p1: String!): Locale' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:340:77 Unnecessary safe call on a non-null receiver of type 'ExitPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:351:50 Unnecessary safe call on a non-null receiver of type 'ExitPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:351:91 Elvis operator (?:) always returns the left operand of non-nullable type 'String'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/exitcheck/ExitCheckActivity.kt:356:61 Unnecessary safe call on a non-null receiver of type 'ExitPlace'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/main/MainGroupTab.kt:33:5 'fun ScrollableTabRow(selectedTabIndex: Int, modifier: Modifier = ..., containerColor: Color = ..., contentColor: Color = ..., edgePadding: Dp = ..., indicator: ComposableFunction1<List<TabPosition>, Unit> = ..., divider: ComposableFunction0<Unit> = ..., tabs: ComposableFunction0<Unit>): Unit' is deprecated. Replaced with PrimaryScrollableTabRow and SecondaryScrollableTabRow tab variants.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/main/MainGroupTab.kt:41:37 'fun Modifier.tabIndicatorOffset(currentTabPosition: TabPosition): Modifier' is deprecated. Solely for use alongside deprecated TabRowDefaults.Indicator method. For recommended PrimaryIndicator and SecondaryIndicator methods, please use TabIndicatorScope.tabIndicatorOffset method.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/routing/RoutingSettingActivity.kt:385:43 Elvis operator (?:) always returns the left operand of non-nullable type 'Boolean'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/server/ServerCustomConfigActivity.kt:140:44 Unnecessary safe call on a non-null receiver of type 'ProfileItem'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/server/ServerCustomConfigActivity.kt:142:38 Unnecessary safe call on a non-null receiver of type 'ProfileItem'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/ui/server/ServerCustomConfigActivity.kt:143:42 Unnecessary safe call on a non-null receiver of type 'ProfileItem'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/util/HttpUtil.kt:130:37 Unnecessary safe call on a non-null receiver of type 'ResponseBody'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/util/HttpUtil.kt:213:64 Unnecessary safe call on a non-null receiver of type 'ResponseBody'.
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/main/java/com/v2ray/ang/util/HttpUtil.kt:309:42 Elvis operator (?:) always returns the left operand of non-nullable type 'ResponseBody'.
+
+> Task :app:compilePlaystoreDebugJavaWithJavac
+> Task :app:processPlaystoreDebugJavaRes
+> Task :app:bundlePlaystoreDebugClassesToRuntimeJar
+> Task :app:bundlePlaystoreDebugClassesToCompileJar
+
+> Task :app:compilePlaystoreDebugUnitTestKotlin
+w: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/src/test/java/com/v2ray/ang/core/AetherDelayTesterTest.kt:195:61 Expression is unused.
+
+> Task :app:compilePlaystoreDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processPlaystoreDebugUnitTestJavaRes
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+> Task :app:testPlaystoreDebugUnitTest
+
+SubscriptionPanelTest > base64DecoderHandlesBothAlphabetsAndRejectsJunk() FAILED
+    org.opentest4j.AssertionFailedError at SubscriptionPanelTest.kt:311
+
+HttpUtilPanelHeadersTest > bodyAndPanelHeadersComeBackTogether() FAILED
+    org.opentest4j.AssertionFailedError at HttpUtilPanelHeadersTest.kt:87
+
+329 tests completed, 2 failed
+
+> Task :app:testPlaystoreDebugUnitTest FAILED
+
+[Incubating] Problems report is available at: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:testPlaystoreDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/runner/work/parsv2r/parsv2r/V2rayNG/app/build/reports/tests/testPlaystoreDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.8.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 2m 34s
+28 actionable tasks: 28 executed
+
+---- gradle test reports ----
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.core.AetherCoreManagerTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.core.AetherCoreManagerTest" tests="25" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:21.061Z" hostname="runnervmtai0g" time="0.244">
+  <properties/>
+  <testcase name="anEndpointTheCoreCannotReadIsLeftToTheScan()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.018"/>
+  <testcase name="outputWithoutALogHeaderIsInformational()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.0"/>
+  <testcase name="aRunReusesTheLastGatewayButAScanLooksAfresh()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.002"/>
+  <testcase name="bindsToTheLoopbackPortItIsGiven()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.001"/>
+  <testcase name="theTestWaitsUntilTheCoreStartsListening()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.047"/>
+  <testcase name="theRunningProfileIsToldByTheArgumentsOfItsSession()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.002"/>
+  <testcase name="coreOutputKeepsItsLogLevel()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.003"/>
+  <testcase name="aFatalErrorFromTheCoreIsAnError()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.001"/>
+  <testcase name="theSessionLogLevelFollowsTheAppSetting()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.0"/>
+  <testcase name="theSessionIsRecognisedWhileItScansAndWhileItListens()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.001"/>
+  <testcase name="theTestGivesUpWhenTheCoreStopsOrTakesTooLong()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.138"/>
+  <testcase name="http2AndFragmentationOnlyApplyToMasque()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.002"/>
+  <testcase name="bothGoolHopsReachTheCoreWhenNamedByHand()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.0"/>
+  <testcase name="theLogHeaderIsStrippedFromCoreOutput()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.0"/>
+  <testcase name="theChosenModesAreForwarded()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.001"/>
+  <testcase name="aLeftoverCoreIsRecognisedByItsPortOrItsDeadOwner()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.0"/>
+  <testcase name="goolScansForHopsItCannotUse()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.001"/>
+  <testcase name="aGoolScanIgnoresTheHopsItWasGiven()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.003"/>
+  <testcase name="eachProtocolIsNamedToTheCore()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.0"/>
+  <testcase name="theOwnerIsReadFromTheEnvironmentTheAppGaveTheCore()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.001"/>
+  <testcase name="aPinnedEndpointIsForwardedInTheCoreFormat()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.005"/>
+  <testcase name="namingOneGoolHopLeavesTheOtherToTheScan()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.0"/>
+  <testcase name="fragmentValuesReachTheCoreOnlyWhenFragmentingIsOn()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.005"/>
+  <testcase name="theWarmUpReportsAListenerACoreExitOrNothingAtAll()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.001"/>
+  <testcase name="theSessionProtocolIsReadFromItsArguments()" classname="com.v2ray.ang.core.AetherCoreManagerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.util.ZipUtilTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.util.ZipUtilTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:26.428Z" hostname="runnervmtai0g" time="0.019">
+  <properties/>
+  <testcase name="extractArchiveRejectsPathTraversal()" classname="com.v2ray.ang.util.ZipUtilTest" time="0.005"/>
+  <testcase name="extractArchiveRejectsExcessiveCompressionRatio()" classname="com.v2ray.ang.util.ZipUtilTest" time="0.001"/>
+  <testcase name="extractArchiveRejectsOversizedArchive()" classname="com.v2ray.ang.util.ZipUtilTest" time="0.001"/>
+  <testcase name="extractArchiveRejectsDuplicateCanonicalDestination()" classname="com.v2ray.ang.util.ZipUtilTest" time="0.002"/>
+  <testcase name="extractArchiveRejectsOversizedEntry()" classname="com.v2ray.ang.util.ZipUtilTest" time="0.001"/>
+  <testcase name="extractArchiveRejectsEntryBelowFile()" classname="com.v2ray.ang.util.ZipUtilTest" time="0.002"/>
+  <testcase name="extractArchiveRejectsExcessiveTotalSize()" classname="com.v2ray.ang.util.ZipUtilTest" time="0.001"/>
+  <testcase name="extractArchiveRejectsTooManyEntries()" classname="com.v2ray.ang.util.ZipUtilTest" time="0.002"/>
+  <testcase name="unzipToFolderExtractsNestedFile()" classname="com.v2ray.ang.util.ZipUtilTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.ui.main.ServerProtocolDescriptionTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.ui.main.ServerProtocolDescriptionTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:26.157Z" hostname="runnervmtai0g" time="0.002">
+  <properties/>
+  <testcase name="aVlessProfileKeepsItsFullLine()" classname="com.v2ray.ang.ui.main.ServerProtocolDescriptionTest" time="0.001"/>
+  <testcase name="groupsAndChainsStayAsTheyWere()" classname="com.v2ray.ang.ui.main.ServerProtocolDescriptionTest" time="0.0"/>
+  <testcase name="aJsonProfileNamesItsTransport()" classname="com.v2ray.ang.ui.main.ServerProtocolDescriptionTest" time="0.0"/>
+  <testcase name="aJsonProfileWithoutATransportSaysCustom()" classname="com.v2ray.ang.ui.main.ServerProtocolDescriptionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.ui.server.ProxyChainMembersTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.ui.server.ProxyChainMembersTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:26.160Z" hostname="runnervmtai0g" time="0.001">
+  <properties/>
+  <testcase name="blankMemberIsRemovedWithItsOwnKey()" classname="com.v2ray.ang.ui.server.ProxyChainMembersTest" time="0.0"/>
+  <testcase name="emptyChainRemainsEmpty()" classname="com.v2ray.ang.ui.server.ProxyChainMembersTest" time="0.0"/>
+  <testcase name="removalFollowsThePendingKeyAfterReordering()" classname="com.v2ray.ang.ui.server.ProxyChainMembersTest" time="0.0"/>
+  <testcase name="missingMemberLeavesBothListsUnchanged()" classname="com.v2ray.ang.ui.server.ProxyChainMembersTest" time="0.0"/>
+  <testcase name="duplicateNamesDoNotChangeWhichMemberIsRemoved()" classname="com.v2ray.ang.ui.server.ProxyChainMembersTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.dto.AetherRangeTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.dto.AetherRangeTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.069Z" hostname="runnervmtai0g" time="0.003">
+  <properties/>
+  <testcase name="valuesOutsideTheLimitsAreRefused()" classname="com.v2ray.ang.dto.AetherRangeTest" time="0.0"/>
+  <testcase name="anythingElseIsNotARange()" classname="com.v2ray.ang.dto.AetherRangeTest" time="0.0"/>
+  <testcase name="aNumberOrARangeIsReadAndWrittenBack()" classname="com.v2ray.ang.dto.AetherRangeTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.core.LauncherManagerTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.core.LauncherManagerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.036Z" hostname="runnervmtai0g" time="0.005">
+  <properties/>
+  <testcase name="groupedProfilesStartWithoutAnAddressOfTheirOwn()" classname="com.v2ray.ang.core.LauncherManagerTest" time="0.001"/>
+  <testcase name="aRegularProfileNeedsAnAddress()" classname="com.v2ray.ang.core.LauncherManagerTest" time="0.002"/>
+  <testcase name="anAetherProfileStartsWithoutAnEndpoint()" classname="com.v2ray.ang.core.LauncherManagerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.fmt.ShadowsocksFmtTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.fmt.ShadowsocksFmtTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.129Z" hostname="runnervmtai0g" time="0.678">
+  <properties/>
+  <testcase name="test_parseLegacy_returnsNullForInvalidFormat()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.629"/>
+  <testcase name="test_parse_handlesEmptyRemarksGracefully()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.002"/>
+  <testcase name="test_parseLegacy_validUrl()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.008"/>
+  <testcase name="test_parseSip002_handlesDifferentEncryptionMethods()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.007"/>
+  <testcase name="test_parseSip002_validUrlWithPlainTextUserinfo()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.002"/>
+  <testcase name="test_parseSip002_validUrlWithBase64EncodedUserinfo()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.002"/>
+  <testcase name="test_parseLegacy_handlesPasswordWithColon()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.003"/>
+  <testcase name="test_parseSip002_returnsNullForInvalidPort()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.002"/>
+  <testcase name="test_toUri_createsValidSip002Url()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.004"/>
+  <testcase name="test_parseSip002_withChacha20Encryption()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.002"/>
+  <testcase name="test_parseAndToUri_roundTripPreservesData()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.002"/>
+  <testcase name="test_toUri_handlesIpv6Address()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.003"/>
+  <testcase name="test_parseSip002_returnsNullForEmptyHost()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.002"/>
+  <testcase name="test_parseLegacy_withPartiallyEncodedUrl()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.002"/>
+  <testcase name="test_parseLegacy_convertsMethodToLowercase()" classname="com.v2ray.ang.fmt.ShadowsocksFmtTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/home/runner/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.17.7/fbf3d6d649ed37fc9e9c59480a05be0a26e3c2da/byte-buddy-agent-1.17.7.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.root.RootProcessRunnerTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.root.RootProcessRunnerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:24.360Z" hostname="runnervmtai0g" time="0.28">
+  <properties/>
+  <testcase name="failure status and diagnostic output survive()" classname="com.v2ray.ang.root.RootProcessRunnerTest" time="0.016"/>
+  <testcase name="inherited stdout cannot hold a completed command open()" classname="com.v2ray.ang.root.RootProcessRunnerTest" time="0.016"/>
+  <testcase name="a silent blocked command respects its deadline()" classname="com.v2ray.ang.root.RootProcessRunnerTest" time="0.156"/>
+  <testcase name="large output is drained without unbounded retention()" classname="com.v2ray.ang.root.RootProcessRunnerTest" time="0.089"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.ui.main.ServerDeleteTargetTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.ui.main.ServerDeleteTargetTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:26.155Z" hostname="runnervmtai0g" time="0.002">
+  <properties/>
+  <testcase name="pendingDeletionRestoresItsGuidAndDisplayName()" classname="com.v2ray.ang.ui.main.ServerDeleteTargetTest" time="0.002"/>
+  <testcase name="noPendingDeletionHasNoSavedTarget()" classname="com.v2ray.ang.ui.main.ServerDeleteTargetTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.service.RealPingExecutionLimiterTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.service.RealPingExecutionLimiterTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:25.804Z" hostname="runnervmtai0g" time="0.169">
+  <properties/>
+  <testcase name="generatedConfigMeasurementsRemainConcurrent()" classname="com.v2ray.ang.service.RealPingExecutionLimiterTest" time="0.004"/>
+  <testcase name="customConfigMeasurementsAreSerializedAcrossWorkers()" classname="com.v2ray.ang.service.RealPingExecutionLimiterTest" time="0.165"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.fmt.CustomFmtTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.fmt.CustomFmtTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.092Z" hostname="runnervmtai0g" time="0.036">
+  <properties/>
+  <testcase name="noHostWithoutAProxyOrAnAddress()" classname="com.v2ray.ang.fmt.CustomFmtTest" time="0.002"/>
+  <testcase name="internalNamesBecomeTheOnesPeopleKnow()" classname="com.v2ray.ang.fmt.CustomFmtTest" time="0.0"/>
+  <testcase name="theNewerMethodKeyIsRead()" classname="com.v2ray.ang.fmt.CustomFmtTest" time="0.0"/>
+  <testcase name="theServersShapeGivesTheHostToo()" classname="com.v2ray.ang.fmt.CustomFmtTest" time="0.027"/>
+  <testcase name="plainTcpAndBrokenJsonGiveNothing()" classname="com.v2ray.ang.fmt.CustomFmtTest" time="0.002"/>
+  <testcase name="aMasqueOutboundSaysMasque()" classname="com.v2ray.ang.fmt.CustomFmtTest" time="0.001"/>
+  <testcase name="theFlatAddressStillWins()" classname="com.v2ray.ang.fmt.CustomFmtTest" time="0.001"/>
+  <testcase name="anXdriveConfigSaysXdrive()" classname="com.v2ray.ang.fmt.CustomFmtTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.service.DialerWebviewServiceTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.service.DialerWebviewServiceTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:24.645Z" hostname="runnervmtai0g" time="1.159">
+  <properties/>
+  <testcase name="callbacksCannotResumeADestroyedViewOrRescheduleKeepAlive()" classname="com.v2ray.ang.service.DialerWebviewServiceTest" time="0.667"/>
+  <testcase name="restartReplacesTheViewAndRepeatedStopDestroysItOnce()" classname="com.v2ray.ang.service.DialerWebviewServiceTest" time="0.005"/>
+  <testcase name="workerStopCompletesCleanupBeforeReturning()" classname="com.v2ray.ang.service.DialerWebviewServiceTest" time="0.006"/>
+  <testcase name="emptyAddressStopsThePreviousViewWithoutCreatingAnother()" classname="com.v2ray.ang.service.DialerWebviewServiceTest" time="0.002"/>
+  <testcase name="rejectedMainThreadDispatchFailsWithoutWaiting()" classname="com.v2ray.ang.service.DialerWebviewServiceTest" time="0.004"/>
+  <testcase name="interruptedWorkerCannotLeaveAQueuedStartBehind()" classname="com.v2ray.ang.service.DialerWebviewServiceTest" time="0.003"/>
+  <testcase name="cleanupFailureStillDestroysTheViewAndReachesTheCaller()" classname="com.v2ray.ang.service.DialerWebviewServiceTest" time="0.451"/>
+  <testcase name="setupFailureCleansUpAndReachesTheWorkerUnwrapped()" classname="com.v2ray.ang.service.DialerWebviewServiceTest" time="0.008"/>
+  <testcase name="mainThreadStopInvalidatesAQueuedWorkerStart()" classname="com.v2ray.ang.service.DialerWebviewServiceTest" time="0.002"/>
+  <testcase name="oldQueuedStopCannotDestroyANewerStart()" classname="com.v2ray.ang.service.DialerWebviewServiceTest" time="0.004"/>
+  <testcase name="workerStartWaitsForMainThreadSetup()" classname="com.v2ray.ang.service.DialerWebviewServiceTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.UtilsTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.UtilsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:21.047Z" hostname="runnervmtai0g" time="0.013">
+  <properties/>
+  <testcase name="test_isIpAddress()" classname="com.v2ray.ang.UtilsTest" time="0.01"/>
+  <testcase name="test_parseInt()" classname="com.v2ray.ang.UtilsTest" time="0.001"/>
+  <testcase name="test_IsIpInCidr()" classname="com.v2ray.ang.UtilsTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.core.XDriveRepairTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.core.XDriveRepairTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.046Z" hostname="runnervmtai0g" time="0.017">
+  <properties/>
+  <testcase name="countsOutboundsWithoutEncryptionWithoutTouchingThem()" classname="com.v2ray.ang.core.XDriveRepairTest" time="0.007"/>
+  <testcase name="replacesEnabledWrittenAsAStringWithABoolean()" classname="com.v2ray.ang.core.XDriveRepairTest" time="0.002"/>
+  <testcase name="addsTheMuxThePanelLeftOut()" classname="com.v2ray.ang.core.XDriveRepairTest" time="0.001"/>
+  <testcase name="leavesOtherTransportsAlone()" classname="com.v2ray.ang.core.XDriveRepairTest" time="0.001"/>
+  <testcase name="doesNotForceMuxOnVlessReverse()" classname="com.v2ray.ang.core.XDriveRepairTest" time="0.0"/>
+  <testcase name="readsTheNewerMethodKeyAndTheFlatVlessSettings()" classname="com.v2ray.ang.core.XDriveRepairTest" time="0.0"/>
+  <testcase name="ignoresAConfigWithoutOutbounds()" classname="com.v2ray.ang.core.XDriveRepairTest" time="0.0"/>
+  <testcase name="turnsEveryRefusedMuxSettingIntoOneTheCoreTakes()" classname="com.v2ray.ang.core.XDriveRepairTest" time="0.001"/>
+  <testcase name="keepsAValidMuxAsItIs()" classname="com.v2ray.ang.core.XDriveRepairTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.util.HttpUtilPanelHeadersTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.util.HttpUtilPanelHeadersTest" tests="3" skipped="0" failures="1" errors="0" timestamp="2026-10-27T16:20:26.409Z" hostname="runnervmtai0g" time="0.019">
+  <properties/>
+  <testcase name="headersAreTakenFromTheFinalResponseAfterARedirect()" classname="com.v2ray.ang.util.HttpUtilPanelHeadersTest" time="0.012"/>
+  <testcase name="bodyAndPanelHeadersComeBackTogether()" classname="com.v2ray.ang.util.HttpUtilPanelHeadersTest" time="0.004">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;301&gt; but was: &lt;300&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;301&gt; but was: &lt;300&gt;
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:680)
+	at com.v2ray.ang.util.HttpUtilPanelHeadersTest.bodyAndPanelHeadersComeBackTogether(HttpUtilPanelHeadersTest.kt:87)
+</failure>
+  </testcase>
+  <testcase name="theOldBodyOnlyCallStillReturnsTheBody()" classname="com.v2ray.ang.util.HttpUtilPanelHeadersTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.ui.server.ServerUiStateTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.ui.server.ServerUiStateTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:26.193Z" hostname="runnervmtai0g" time="0.015">
+  <properties/>
+  <testcase name="aNewAetherProfileStartsWithTheDefaultsAndNoPort()" classname="com.v2ray.ang.ui.server.ServerUiStateTest" time="0.014"/>
+  <testcase name="aetherOptionsAreNormalizedToValuesTheDropdownsKnow()" classname="com.v2ray.ang.ui.server.ServerUiStateTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.ui.settings.SettingsViewModelTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.ui.settings.SettingsViewModelTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:26.224Z" hostname="runnervmtai0g" time="0.18">
+  <properties/>
+  <testcase name="vpnSettingsVisibilityFollowsActivityAvailability()" classname="com.v2ray.ang.ui.settings.SettingsViewModelTest" time="0.18"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.root.RootProxyManagerTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.root.RootProxyManagerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:24.641Z" hostname="runnervmtai0g" time="0.003">
+  <properties/>
+  <testcase name="multiline credentials remain inside the YAML scalar()" classname="com.v2ray.ang.root.RootProxyManagerTest" time="0.001"/>
+  <testcase name="single quotes are escaped in YAML scalars()" classname="com.v2ray.ang.root.RootProxyManagerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.ui.exitcheck.ExitCheckViewModelTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.ui.exitcheck.ExitCheckViewModelTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:26.125Z" hostname="runnervmtai0g" time="0.014">
+  <properties/>
+  <testcase name="dynamicPortOrNoPortNeverRuns()" classname="com.v2ray.ang.ui.exitcheck.ExitCheckViewModelTest" time="0.003"/>
+  <testcase name="initialStateIsNotConnectedWithEveryServicePending()" classname="com.v2ray.ang.ui.exitcheck.ExitCheckViewModelTest" time="0.001"/>
+  <testcase name="aThrowingRunnerEndsAsNoTrafficInsteadOfCrashing()" classname="com.v2ray.ang.ui.exitcheck.ExitCheckViewModelTest" time="0.002"/>
+  <testcase name="nothingAnsweringIsNoTraffic()" classname="com.v2ray.ang.ui.exitcheck.ExitCheckViewModelTest" time="0.0"/>
+  <testcase name="locationWithoutServicesIsStillShareable()" classname="com.v2ray.ang.ui.exitcheck.ExitCheckViewModelTest" time="0.001"/>
+  <testcase name="notConnectedNeverRuns()" classname="com.v2ray.ang.ui.exitcheck.ExitCheckViewModelTest" time="0.001"/>
+  <testcase name="successFillsLocationAndRowsInServiceOrder()" classname="com.v2ray.ang.ui.exitcheck.ExitCheckViewModelTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.ui.ScannerActivityTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.ui.ScannerActivityTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:25.974Z" hostname="runnervmtai0g" time="0.085">
+  <properties/>
+  <testcase name="paddedCameraRowsDecodeQrCode()" classname="com.v2ray.ang.ui.ScannerActivityTest" time="0.084"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.extension.ListExtTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.extension.ListExtTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.072Z" hostname="runnervmtai0g" time="0.002">
+  <properties/>
+  <testcase name="moveItem_up_preservesRelativeOrder()" classname="com.v2ray.ang.extension.ListExtTest" time="0.001"/>
+  <testcase name="moveItem_down_preservesRelativeOrder()" classname="com.v2ray.ang.extension.ListExtTest" time="0.0"/>
+  <testcase name="moveItem_rejectsNoOpAndInvalidIndex()" classname="com.v2ray.ang.extension.ListExtTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.fmt.AetherFmtTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.fmt.AetherFmtTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.074Z" hostname="runnervmtai0g" time="0.017">
+  <properties/>
+  <testcase name="goolHopsFromALinkAreCheckedAndNormalized()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.002"/>
+  <testcase name="theTransportOnlyRidesAlongWithMasque()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.004"/>
+  <testcase name="aNamelessLinkStillGetsALabel()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.001"/>
+  <testcase name="aGoolHopTheCoreCannotUseIsRejected()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.0"/>
+  <testcase name="aPinnedEndpointIsNormalizedBeforeItIsSaved()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.001"/>
+  <testcase name="aPinnedMasqueNodeSurvivesTheRoundTrip()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.001"/>
+  <testcase name="theEndpointNeverRidesAlongWithGool()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.0"/>
+  <testcase name="theHopsOnlyRideAlongWithGool()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.0"/>
+  <testcase name="aNodeLeftToTheScannerCarriesNoEndpoint()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.0"/>
+  <testcase name="aPinnedEndpointTheCoreCannotUseIsRejected()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.0"/>
+  <testcase name="fragmentValuesSurviveTheRoundTrip()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.001"/>
+  <testcase name="goolHopsAreNormalizedAndTheEndpointIsCleared()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.001"/>
+  <testcase name="fragmentValuesAreCheckedOnlyWhenTheyAreUsed()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.0"/>
+  <testcase name="goolHopsMustLeaveThroughDifferentAddresses()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.001"/>
+  <testcase name="bothGoolHopsSurviveTheRoundTrip()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.0"/>
+  <testcase name="anEmptyEndpointMeansScanning()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.0"/>
+  <testcase name="anIpv6EndpointSurvivesTheRoundTrip()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.001"/>
+  <testcase name="aLinkWithoutSettingsFallsBackToTheDefaults()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.0"/>
+  <testcase name="anUnknownSettingFallsBackInsteadOfFailing()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.0"/>
+  <testcase name="anEndpointTheCoreCannotUseIsDroppedFromALink()" classname="com.v2ray.ang.fmt.AetherFmtTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.core.AetherDelayTesterTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.core.AetherDelayTesterTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:21.305Z" hostname="runnervmtai0g" time="1.668">
+  <properties/>
+  <testcase name="nothingListeningOrABrokenUrlIsNotADelay()" classname="com.v2ray.ang.core.AetherDelayTesterTest" time="0.117"/>
+  <testcase name="aProfileSharingTheLiveSessionsKeyIsLeftAlone()" classname="com.v2ray.ang.core.AetherDelayTesterTest" time="0.003"/>
+  <testcase name="aDelayIsMeasuredThroughTheSocksPort()" classname="com.v2ray.ang.core.AetherDelayTesterTest" time="0.018"/>
+  <testcase name="withoutAnAetherSessionEachTestGetsItsOwnTunnel()" classname="com.v2ray.ang.core.AetherDelayTesterTest" time="0.001"/>
+  <testcase name="aTcpPingProbesThePinnedEdgeInsteadOfOpeningATunnel()" classname="com.v2ray.ang.core.AetherDelayTesterTest" time="0.001"/>
+  <testcase name="aProfileWithADifferentKeyGetsItsOwnTunnel()" classname="com.v2ray.ang.core.AetherDelayTesterTest" time="0.0"/>
+  <testcase name="anErrorStatusIsNotADelay()" classname="com.v2ray.ang.core.AetherDelayTesterTest" time="0.01"/>
+  <testcase name="theRunningProfileIsLeftUntestedWhileItsSessionIsStillConnecting()" classname="com.v2ray.ang.core.AetherDelayTesterTest" time="0.001"/>
+  <testcase name="aProfileLeftToTheScannerHasNothingToProbe()" classname="com.v2ray.ang.core.AetherDelayTesterTest" time="0.001"/>
+  <testcase name="aPlainOkAlsoCountsAsAnAnswer()" classname="com.v2ray.ang.core.AetherDelayTesterTest" time="0.006"/>
+  <testcase name="theRunningProfileIsMeasuredThroughTheLiveSession()" classname="com.v2ray.ang.core.AetherDelayTesterTest" time="0.001"/>
+  <testcase name="aProbeThatGetsNoAnswerGivesUpWithinItsBudget()" classname="com.v2ray.ang.core.AetherDelayTesterTest" time="1.502"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Possibly running android unit test without robolectric
+java.lang.RuntimeException: Method isLoggable in android.util.Log not mocked. See https://developer.android.com/r/studio-ui/build/not-mocked for details.
+	at android.util.Log.isLoggable(Log.java)
+	at okhttp3.internal.platform.android.AndroidLog.enableLogging(AndroidLog.kt:132)
+	at okhttp3.internal.platform.android.AndroidLog.enable(AndroidLog.kt:109)
+	at okhttp3.internal.platform.PlatformRegistry.findPlatform(PlatformRegistry.kt:25)
+	at okhttp3.internal.platform.Platform$Companion.findPlatform(Platform.kt:252)
+	at okhttp3.internal.platform.Platform$Companion.access$findPlatform(Platform.kt:230)
+	at okhttp3.internal.platform.Platform.<clinit>(Platform.kt:231)
+	at okhttp3.OkHttpClient$Builder.<init>(OkHttpClient.kt:607)
+	at com.v2ray.ang.core.AetherDelayTester.requestDelay$v2rayNG_app_playstoreDebug(AetherDelayTester.kt:170)
+	at com.v2ray.ang.core.AetherDelayTester.requestDelay$v2rayNG_app_playstoreDebug$default(AetherDelayTester.kt:164)
+	at com.v2ray.ang.core.AetherDelayTesterTest.nothingListeningOrABrokenUrlIsNotADelay(AetherDelayTesterTest.kt:134)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:700)
+	at org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:528)
+	at org.junit.jupiter.engine.support.MethodReflectionUtils.invoke(MethodReflectionUtils.java:53)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:61)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:124)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:163)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:148)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:124)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:99)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:66)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:47)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:39)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invokeVoid(InterceptingExecutableInvoker.java:71)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$0(TestMethodTestDescriptor.java:219)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:215)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:157)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:70)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:176)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:139)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:139)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:139)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:36)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:52)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:256)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:228)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:189)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:109)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:66)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:168)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:65)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:137)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:126)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:100)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:57)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$0(InterceptingLauncher.java:46)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:45)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:57)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor$CollectThenExecuteTestDefinitionConsumer.processAllTestDefinitions(JUnitPlatformTestDefinitionProcessor.java:206)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor$CollectThenExecuteTestDefinitionConsumer.access$000(JUnitPlatformTestDefinitionProcessor.java:123)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestDefinitionProcessor.stop(JUnitPlatformTestDefinitionProcessor.java:117)
+	at org.gradle.api.internal.tasks.testing.SuiteTestDefinitionProcessor.stop(SuiteTestDefinitionProcessor.java:63)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.gradle.internal.dispatch.MethodInvocation.invokeOn(MethodInvocation.java:77)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:28)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:19)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88)
+	at jdk.proxy1/jdk.proxy1.$Proxy4.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:195)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:126)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:122)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:72)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.handler.ExitCheckLogicTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.handler.ExitCheckLogicTest" tests="26" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.949Z" hostname="runnervmtai0g" time="0.038">
+  <properties/>
+  <testcase name="countryLabels()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.013"/>
+  <testcase name="countryDisagreementIsUnknown()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="claude()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.001"/>
+  <testcase name="google()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.002"/>
+  <testcase name="reachable()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.001"/>
+  <testcase name="youtube()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="parsesIpSb()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="aDifferentIpIsFlaggedAndStaysFlagged()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.001"/>
+  <testcase name="cityDisagreementKeepsOnlyTheCountry()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.001"/>
+  <testcase name="sameIpOrMissingIpIsNotAChange()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="noAnswersIsNull()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="threeAgreeingDatabasesGiveCountryAndCity()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.002"/>
+  <testcase name="stripsAsn()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="binance()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.001"/>
+  <testcase name="flags()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.001"/>
+  <testcase name="hosts()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="parsesIpinfoWhereCountryIsTheCode()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="shareTextCarriesPlaceVerdictsAndFooter()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.002"/>
+  <testcase name="chatGpt()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.001"/>
+  <testcase name="oneDatabaseAloneIsNotTrusted()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="cloudflareIsUnknownEvenWhenTheDatabasesAgree()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="parsesIpwhoIs()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="asnIsReadFromEachDatabase()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="storedPlaceRoundTripsThroughLabel()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.001"/>
+  <testcase name="firstCheckIsNotAChange()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <testcase name="rejectsFailureAndJunk()" classname="com.v2ray.ang.handler.ExitCheckLogicTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.ui.logcat.LogcatEntryTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.ui.logcat.LogcatEntryTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:26.139Z" hostname="runnervmtai0g" time="0.006">
+  <properties/>
+  <testcase name="emptyAndKeyLikeMessagesRemainDistinct()" classname="com.v2ray.ang.ui.logcat.LogcatEntryTest" time="0.003"/>
+  <testcase name="filteringOtherLinesPreservesKeysOfEveryMatchingOccurrence()" classname="com.v2ray.ang.ui.logcat.LogcatEntryTest" time="0.001"/>
+  <testcase name="identicalTimestampedLinesHaveUniqueKeysWithoutLosingMessages()" classname="com.v2ray.ang.ui.logcat.LogcatEntryTest" time="0.0"/>
+  <testcase name="preservesNewestFirstOrderAndOriginalText()" classname="com.v2ray.ang.ui.logcat.LogcatEntryTest" time="0.001"/>
+  <testcase name="emptyLogProducesNoEntries()" classname="com.v2ray.ang.ui.logcat.LogcatEntryTest" time="0.0"/>
+  <testcase name="refreshWithNewerLinesPreservesExistingOccurrenceKeys()" classname="com.v2ray.ang.ui.logcat.LogcatEntryTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.handler.OrphanProfileCleanerTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.handler.OrphanProfileCleanerTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.988Z" hostname="runnervmtai0g" time="0.005">
+  <properties/>
+  <testcase name="reports no work when profile storage is empty()" classname="com.v2ray.ang.handler.OrphanProfileCleanerTest" time="0.001"/>
+  <testcase name="aborts cleanup when any raw group index is unreadable()" classname="com.v2ray.ang.handler.OrphanProfileCleanerTest" time="0.001"/>
+  <testcase name="keeps selected and undecodable profiles()" classname="com.v2ray.ang.handler.OrphanProfileCleanerTest" time="0.0"/>
+  <testcase name="aborts cleanup when no raw group indexes survive()" classname="com.v2ray.ang.handler.OrphanProfileCleanerTest" time="0.0"/>
+  <testcase name="keeps profiles whose group index is missing()" classname="com.v2ray.ang.handler.OrphanProfileCleanerTest" time="0.001"/>
+  <testcase name="uses raw group indexes when subscription metadata is missing()" classname="com.v2ray.ang.handler.OrphanProfileCleanerTest" time="0.0"/>
+  <testcase name="keeps a profile indexed by a different group()" classname="com.v2ray.ang.handler.OrphanProfileCleanerTest" time="0.001"/>
+  <testcase name="normalizes ungrouped profiles to the default group()" classname="com.v2ray.ang.handler.OrphanProfileCleanerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.core.AetherIdentityManagerTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.core.AetherIdentityManagerTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:22.975Z" hostname="runnervmtai0g" time="0.046">
+  <properties/>
+  <testcase name="eachProtocolReadsItsOwnKeyFiles()" classname="com.v2ray.ang.core.AetherIdentityManagerTest" time="0.017"/>
+  <testcase name="aFileWithoutADeviceIsNotAKey()" classname="com.v2ray.ang.core.AetherIdentityManagerTest" time="0.001"/>
+  <testcase name="wireguardAndGoolShareAKeyWhileMasqueHasItsOwn()" classname="com.v2ray.ang.core.AetherIdentityManagerTest" time="0.001"/>
+  <testcase name="aFailedRenewalRestoresTheOldKeys()" classname="com.v2ray.ang.core.AetherIdentityManagerTest" time="0.006"/>
+  <testcase name="aCancellationLandingRightAfterTheKeysWereSetAsideStillRestoresThem()" classname="com.v2ray.ang.core.AetherIdentityManagerTest" time="0.005"/>
+  <testcase name="aFailedFirstRegistrationLeavesNoKeyBehind()" classname="com.v2ray.ang.core.AetherIdentityManagerTest" time="0.002"/>
+  <testcase name="onlyTheIdentityFieldsAreReadFromAKeyFile()" classname="com.v2ray.ang.core.AetherIdentityManagerTest" time="0.001"/>
+  <testcase name="theCoreSaysWhenANewKeyIsReady()" classname="com.v2ray.ang.core.AetherIdentityManagerTest" time="0.001"/>
+  <testcase name="aCancelledRenewalRestoresTheOldKeys()" classname="com.v2ray.ang.core.AetherIdentityManagerTest" time="0.005"/>
+  <testcase name="aSuccessfulRenewalReplacesTheOldKeys()" classname="com.v2ray.ang.core.AetherIdentityManagerTest" time="0.003"/>
+  <testcase name="aMissingKeyFileMeansNoKey()" classname="com.v2ray.ang.core.AetherIdentityManagerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.core.AetherScannerTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.core.AetherScannerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.021Z" hostname="runnervmtai0g" time="0.005">
+  <properties/>
+  <testcase name="aLineThatNamesNoUsableEndpointYieldsNothing()" classname="com.v2ray.ang.core.AetherScannerTest" time="0.0"/>
+  <testcase name="readsBothGoolHopsOutOfOneLine()" classname="com.v2ray.ang.core.AetherScannerTest" time="0.0"/>
+  <testcase name="goolWaitsForBothHopsInsteadOfTheFirstEndpoint()" classname="com.v2ray.ang.core.AetherScannerTest" time="0.0"/>
+  <testcase name="readsAnIpv6MasqueGatewayWrittenWithoutBrackets()" classname="com.v2ray.ang.core.AetherScannerTest" time="0.001"/>
+  <testcase name="readsTheWireguardEndpointOutOfTheLog()" classname="com.v2ray.ang.core.AetherScannerTest" time="0.001"/>
+  <testcase name="eachProtocolOnlyReadsItsOwnResult()" classname="com.v2ray.ang.core.AetherScannerTest" time="0.0"/>
+  <testcase name="readsTheMasqueGatewayOutOfTheLog()" classname="com.v2ray.ang.core.AetherScannerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.ui.main.MainViewModelStatusTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.ui.main.MainViewModelStatusTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:26.151Z" hostname="runnervmtai0g" time="0.003">
+  <properties/>
+  <testcase name="aStartOrStopSignalSetsThePlainState()" classname="com.v2ray.ang.ui.main.MainViewModelStatusTest" time="0.002"/>
+  <testcase name="aRepeatedSignalKeepsTestTextButEndsConnecting()" classname="com.v2ray.ang.ui.main.MainViewModelStatusTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.core.CoreOutboundBuilderTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.core.CoreOutboundBuilderTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.026Z" hostname="runnervmtai0g" time="0.01">
+  <properties/>
+  <testcase name="test_applyDialMode_wireguardWithoutStreamSettings_getsSockoptWithoutNetwork()" classname="com.v2ray.ang.core.CoreOutboundBuilderTest" time="0.008"/>
+  <testcase name="test_applyDialMode_ignoresBlankDialMode()" classname="com.v2ray.ang.core.CoreOutboundBuilderTest" time="0.001"/>
+  <testcase name="test_applyDialMode_setsSockoptDialMode()" classname="com.v2ray.ang.core.CoreOutboundBuilderTest" time="0.0"/>
+  <testcase name="test_applyDialMode_keepsExistingSockoptOptions()" classname="com.v2ray.ang.core.CoreOutboundBuilderTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.handler.ProfileReplacementTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.handler.ProfileReplacementTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.993Z" hostname="runnervmtai0g" time="0.005">
+  <properties/>
+  <testcase name="matches endpoint and password when remarks are unavailable()" classname="com.v2ray.ang.handler.ProfileReplacementTest" time="0.001"/>
+  <testcase name="prefers a full match over a remarks-only match()" classname="com.v2ray.ang.handler.ProfileReplacementTest" time="0.0"/>
+  <testcase name="falls back to the first replacement profile()" classname="com.v2ray.ang.handler.ProfileReplacementTest" time="0.001"/>
+  <testcase name="keeps an existing selection when it is outside the replaced group()" classname="com.v2ray.ang.handler.ProfileReplacementTest" time="0.001"/>
+  <testcase name="removes only unreferenced superseded payloads()" classname="com.v2ray.ang.handler.ProfileReplacementTest" time="0.0"/>
+  <testcase name="selects the first profile when there is no current selection()" classname="com.v2ray.ang.handler.ProfileReplacementTest" time="0.0"/>
+  <testcase name="uses a remarks match when no full match exists()" classname="com.v2ray.ang.handler.ProfileReplacementTest" time="0.0"/>
+  <testcase name="keeps all payloads when another group index is unreadable()" classname="com.v2ray.ang.handler.ProfileReplacementTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.handler.SubscriptionIndexTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.handler.SubscriptionIndexTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:24.003Z" hostname="runnervmtai0g" time="0.31">
+  <properties/>
+  <testcase name="missingBlankAndEmptyIndexesRemainEmpty()" classname="com.v2ray.ang.handler.SubscriptionIndexTest" time="0.133"/>
+  <testcase name="duplicateIdsKeepTheirFirstPositionWithoutWritingStorage()" classname="com.v2ray.ang.handler.SubscriptionIndexTest" time="0.005"/>
+  <testcase name="repeatedAndBlankNamesDoNotMergeDifferentSubscriptions()" classname="com.v2ray.ang.handler.SubscriptionIndexTest" time="0.007"/>
+  <testcase name="malformedIndexKeepsTheExistingEmptyFallback()" classname="com.v2ray.ang.handler.SubscriptionIndexTest" time="0.002"/>
+  <testcase name="duplicateIndexEntriesProduceOnlyOneSubscriptionRow()" classname="com.v2ray.ang.handler.SubscriptionIndexTest" time="0.002"/>
+  <testcase name="decodedIndexRemainsMutableAndCanBeSavedInANewOrder()" classname="com.v2ray.ang.handler.SubscriptionIndexTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.ui.server.ServerAetherViewModelTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.ui.server.ServerAetherViewModelTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:26.161Z" hostname="runnervmtai0g" time="0.032">
+  <properties/>
+  <testcase name="startsIdleWithAnEmptyLogAndReportsWhetherTheCoreIsAvailable()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.003"/>
+  <testcase name="goolReportsBothHopKeys()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.001"/>
+  <testcase name="theKeyIsNotRenewedUnderALiveSession()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.002"/>
+  <testcase name="cancellingWhenNothingRunsKeepsTheResult()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.001"/>
+  <testcase name="aScanStreamsTheCoreOutputAndEndsWithTheEndpointItFound()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.001"/>
+  <testcase name="handlingARunningScanDoesNotHideIt()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.001"/>
+  <testcase name="aSecondActionWaitsForTheFirstToFinish()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.001"/>
+  <testcase name="aLiveSessionIsReportedWhenTheScreenOpens()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.001"/>
+  <testcase name="theLogKeepsOnlyTheLatestEntries()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.007"/>
+  <testcase name="theKeyStatusIsLoggedOnceUntilItChanges()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.002"/>
+  <testcase name="bothGoolHopsAreLoggedTogether()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.0"/>
+  <testcase name="aFailedRenewalSaysTheOldKeyWasKept()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.0"/>
+  <testcase name="renewingTheKeyShowsTheNewKey()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.001"/>
+  <testcase name="aScanIsNotStartedOnTheKeyOfALiveSession()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.001"/>
+  <testcase name="cancellingAScanStopsItAndReturnsToIdle()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.002"/>
+  <testcase name="coreOutputKeepsItsLevelButLosesItsHeader()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.001"/>
+  <testcase name="aScanThatFindsNothingSaysSo()" classname="com.v2ray.ang.ui.server.ServerAetherViewModelTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.fmt.VmessFmtTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.fmt.VmessFmtTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:23.818Z" hostname="runnervmtai0g" time="0.085">
+  <properties/>
+  <testcase name="test_toUri_writesDialModeIntoQrCodeJson()" classname="com.v2ray.ang.fmt.VmessFmtTest" time="0.076"/>
+  <testcase name="test_parse_leavesDialModeEmptyWhenAbsent()" classname="com.v2ray.ang.fmt.VmessFmtTest" time="0.002"/>
+  <testcase name="test_parseAndToUri_roundTripPreservesDialMode()" classname="com.v2ray.ang.fmt.VmessFmtTest" time="0.002"/>
+  <testcase name="test_parse_readsDialModeFromQrCodeJson()" classname="com.v2ray.ang.fmt.VmessFmtTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com.v2ray.ang.ui.apppicker.AppPickerViewModelTest.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.v2ray.ang.ui.apppicker.AppPickerViewModelTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-27T16:20:26.059Z" hostname="runnervmtai0g" time="0.065">
+  <properties/>
+  <testcase name="initialize_preservesChangesAfterFirstCall()" classname="com.v2ray.ang.ui.apppicker.AppPickerViewModelTest" time="0.064"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+== ./V2rayNG/app/build/test-results/testPlaystoreDebugUnitTest/TEST-com
